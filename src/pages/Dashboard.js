@@ -30,6 +30,13 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Dashboardnews from "./Dashboardnews";
 import Dashboardtadbir from "./Dashboardtadbir";
+import Carousel from "react-multi-carousel";
+import school from "../img/gerb.jpg";
+import her2 from "../img/h2.jpg";
+import her3 from "../img/h3.jpg";
+import her4 from "../img/h4.jpg";
+import her5 from "../img/h5.png";
+import her6 from "../img/h6.png";
 
 export default class Dashboard extends Component {
   state = {
@@ -44,6 +51,25 @@ export default class Dashboard extends Component {
   }
 
   render() {
+    const responsive = {
+      superLargeDesktop: {
+        // the naming can be any, depends on you.
+        breakpoint: { max: 4000, min: 3000 },
+        items: 7,
+      },
+      desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 6,
+      },
+      tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 3,
+      },
+      mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 2,
+      },
+    };
     return (
       <div>
         {this.state.loader ? (
@@ -62,7 +88,7 @@ export default class Dashboard extends Component {
                 <source src={kinder} type="video/mp4" />
               </video>
               <div className={styles.btnHeader}>
-                <img src={rasm2} />
+                <img alt="" src={rasm2} />
                 <button>Hoziroq qo'ng'iroq qiling!</button>
               </div>
             </div>
@@ -80,7 +106,7 @@ export default class Dashboard extends Component {
                     }}
                     className={styles.card1}
                   >
-                    <img src={icon1} />
+                    <img alt="" src={icon1} />
                     <p>
                       <Link style={{ color: "white" }} to="/yoga/uz">
                         Sport
@@ -94,7 +120,7 @@ export default class Dashboard extends Component {
                     style={{ backgroundColor: "#F76B6A" }}
                     className={styles.card}
                   >
-                    <img src={icon2} />
+                    <img alt="" src={icon2} />
                     <p>
                       <Link style={{ color: "white" }} to="/musiqa/uz">
                         Musiqa
@@ -112,7 +138,7 @@ export default class Dashboard extends Component {
                     }}
                     className={styles.card1}
                   >
-                    <img src={icon3} />
+                    <img alt="" src={icon3} />
                     <p>
                       <Link style={{ color: "white" }} to="/garden/uz">
                         Bog'
@@ -126,7 +152,7 @@ export default class Dashboard extends Component {
                     style={{ backgroundColor: "#F76B6A" }}
                     className={styles.card}
                   >
-                    <img src={icon4} />
+                    <img alt="" src={icon4} />
                     <p>
                       <Link style={{ color: "white" }} to="/steam/uz">
                         Steam
@@ -144,7 +170,7 @@ export default class Dashboard extends Component {
                     }}
                     className={styles.card1}
                   >
-                    <img src={icon5} />
+                    <img alt="" src={icon5} />
                     <p>
                       <Link style={{ color: "white" }} to="/cooking/uz">
                         Shirinlik
@@ -158,7 +184,7 @@ export default class Dashboard extends Component {
                     style={{ backgroundColor: "#F76B6A" }}
                     className={styles.card}
                   >
-                    <img src={icon6} />
+                    <img alt="" src={icon6} />
                     <p>
                       <Link style={{ color: "white" }} to="/pedagogy/uz">
                         Pedagogika
@@ -179,7 +205,7 @@ export default class Dashboard extends Component {
                   >
                     <Row>
                       <Col lg={7} style={{ padding: "0" }}>
-                        <img src={rasm6} style={{ width: "100%" }} />
+                        <img alt="" src={rasm6} style={{ width: "100%" }} />
                       </Col>
                       <Col lg={5} className={styles.heading}>
                         <h1>Mehribon va tarbiyalovchi muhit</h1>
@@ -195,7 +221,7 @@ export default class Dashboard extends Component {
                         <span>
                           <Link to="/loving/uz">Batafsil</Link>
                         </span>
-                        <img src={border} />
+                        <img alt="" src={border} />
                       </Col>
                     </Row>
                   </Col>
@@ -224,11 +250,11 @@ export default class Dashboard extends Component {
                         <span>
                           <Link to="/wonder/uz">Batafsil</Link>
                         </span>
-                        <img src={border} className={styles.img1} />
+                        <img alt="" src={border} className={styles.img1} />
                       </Col>
 
                       <Col lg={7} style={{ padding: "0" }}>
-                        <img src={rasm3} style={{ width: "100%" }} />
+                        <img alt="" src={rasm3} style={{ width: "100%" }} />
                       </Col>
                     </Row>
                   </Col>
@@ -244,7 +270,7 @@ export default class Dashboard extends Component {
                     <Dashboardnews />
                     <Row>
                       <Col lg={7} style={{ padding: "0" }}>
-                        <img src={rasm4} style={{ width: "100%" }} />
+                        <img alt="" src={rasm4} style={{ width: "100%" }} />
                       </Col>
                       <Col lg={5} className={styles.heading}>
                         <h1>G'ayrat. Nishon. Etakchilik</h1>
@@ -263,7 +289,7 @@ export default class Dashboard extends Component {
                         <span>
                           <Link to="/leadership/uz">Batafsil</Link>
                         </span>
-                        <img src={border} />
+                        <img alt="" src={border} />
                       </Col>
                     </Row>
                   </Col>
@@ -300,15 +326,143 @@ export default class Dashboard extends Component {
                         <span>
                           <Link to="/changing/uz">Batafsil</Link>
                         </span>
-                        <img src={border} className={styles.img1} />
+                        <img alt="" src={border} className={styles.img1} />
                       </Col>
                       <Col lg={7} style={{ padding: "0" }}>
-                        <img src={rasm7} style={{ width: "100%" }} />
+                        <img alt="" src={rasm7} style={{ width: "100%" }} />
                       </Col>
                     </Row>
                   </Col>
                 </Row>
               </Container>
+            </div>
+            <div style={{ padding: "10px 0 30px" }}>
+              <h1 className={styles.sarlavha}> Bizning hamkorlarimiz</h1>
+
+              <div
+                className={styles.sliderHomiy}
+                style={{ backgroundColor: "white" }}
+              >
+                <Carousel
+                  responsive={responsive}
+                  autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                  autoPlaySpeed={3000}
+                  infinite={true}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "20px",
+                      alingItems: "center",
+                    }}
+                  >
+                    <div
+                      className={styles.toolpat}
+                      style={{ backgroundColor: "white" }}
+                    >
+                      <a href="https://president.uz/oz" target="_blank">
+                        <img alt="" src={school} />
+                      </a>
+                    </div>
+                    <p>
+                      O'zbekiston Respublikasi Prezidentining rasmiy veb-sayti
+                    </p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "20px",
+                      alingItems: "center",
+                    }}
+                  >
+                    <div
+                      className={styles.toolpat}
+                      style={{ backgroundColor: "white" }}
+                    >
+                      <a href="https://www.gov.uz/uz" target="_blank">
+                        <img alt="" src={her2} />
+                      </a>
+                    </div>
+                    <p>O'zbekiston Respublikasining Hukumat portali</p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "20px",
+                      alingItems: "center",
+                    }}
+                  >
+                    <div
+                      className={styles.toolpat}
+                      style={{ backgroundColor: "white" }}
+                    >
+                      <a href="https://lex.uz/" target="_blank">
+                        <img alt="" src={her3} />
+                      </a>
+                    </div>
+                    <p>
+                      O'zbekiston Respublikasi qonun hujjatlari milliy bazasi
+                    </p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "20px",
+                      alingItems: "center",
+                    }}
+                  >
+                    <div
+                      className={styles.toolpat}
+                      style={{ backgroundColor: "white" }}
+                    >
+                      <a href="https://my.gov.uz/oz" target="_blank">
+                        <img alt="" src={her4} />
+                      </a>
+                    </div>
+                    <p>Interaktiv davlat xizmatlarining Yagona portali</p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "20px",
+                      alingItems: "center",
+                    }}
+                  >
+                    <div
+                      className={styles.toolpat}
+                      style={{ backgroundColor: "white" }}
+                    >
+                      <a href="https://www.uzedu.uz/" target="_blank">
+                        <img alt="" src={her5} />
+                      </a>
+                    </div>
+                    <p>O'zbekiston Respublikasi xalq ta'limi vazirligi</p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      padding: "20px",
+                      alingItems: "center",
+                    }}
+                  >
+                    <div
+                      className={styles.toolpat}
+                      style={{ backgroundColor: "white" }}
+                    >
+                      <a href="https://ittower.uz/" target="_blank">
+                        <img alt="" src={her6} style={{ width: "100%" }} />
+                      </a>
+                    </div>
+                    <p>IT Tower firmasi </p>
+                  </div>
+                </Carousel>
+              </div>
             </div>
             <Footer />
           </div>
