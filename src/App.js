@@ -16,7 +16,7 @@ import Bosqich3 from './pages/3_bosqich'
 import Educators from './pages/Educators'
 import Dasturlar from './pages/Dasturlar'
 import Oshxona from './pages/oshxona'
-import Login from './pages/Login'
+// import Login from './pages/Login'
 import CabinetEducator from './pages/cabinetEducator'
 import Yoga from './css/Yoga'
 import Musiqa from './pages/Musiqa'
@@ -32,6 +32,8 @@ import Rahbariyat from './pages/Rahbariyat';
 
 
 import {BrowserRouter,Switch, Route } from 'react-router-dom';
+import Qabul from './pages/Qabul';
+import Galereya from './pages/Galereya';
 function App() {
   return (
     <BrowserRouter>    
@@ -46,6 +48,7 @@ function App() {
       <Route exact path="/nimauchunbiz/uz"><Why_us/></Route>
       <Route exact path="/bizhaqimizda/uz"><About_us/></Route>
       <Route exact path="/bizningtarix/uz"><Our_story/></Route>
+      <Route exact path="/galereya/uz"><Galereya/></Route>
       <Route exact path="/tarbiyachilar/uz"><Educators/></Route>
       <Route exact path="/dastur_1/uz"><Bosqich1/></Route>
       <Route exact path="/dastur_2/uz"><Bosqich2/></Route>
@@ -60,6 +63,7 @@ function App() {
       <Route exact path="/steam/uz"><Steam/></Route>
       <Route exact path="/cooking/uz"><Cooking/></Route>
       <Route exact path="/pedagogy/uz"><Pedagogy/></Route>
+      <Route exact path="/curriculm/uz"><Qabul/></Route>
       <Route exact path="/yangiliklar/uz"><News/></Route>
       <Route exact path="/yangilik/uz"><New/></Route>
       <Route exact path="/tadbirlar/uz"><Tadbirlar/></Route>

@@ -173,7 +173,7 @@ export default class Dashboard extends Component {
                     <img alt="" src={icon5} />
                     <p>
                       <Link style={{ color: "white" }} to="/cooking/uz">
-                        Shirinlik
+                        Shirinlik 
                       </Link>
                     </p>
                   </Col>
