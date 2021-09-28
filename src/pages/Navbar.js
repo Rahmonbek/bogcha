@@ -157,13 +157,13 @@ export default class Navbar extends Component {
                     />
                   </a>
                 </span>
-                <Link to="/login">
+                {/* <Link to="/login">
                   <button
                     className={this.state.nav ? styles.btn1 : styles.btn2}
                   >
                     Kirish
                   </button>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>

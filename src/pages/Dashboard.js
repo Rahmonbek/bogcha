@@ -77,7 +77,7 @@ export default class Dashboard extends Component {
             <PacmanLoader
               size={20}
               color={"#FF8080"}
-              loading={this.state.loader}
+              loading={this.state.loader} 
             />
           </div>
         ) : (

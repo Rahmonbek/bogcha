@@ -50,9 +50,9 @@ function App() {
       <Route exact path="/dastur_1/uz"><Bosqich1/></Route>
       <Route exact path="/dastur_2/uz"><Bosqich2/></Route>
       <Route exact path="/dastur_3/uz"><Bosqich3/></Route>
-      <Route exact path="/dasturlar/uz"><Dasturlar/></Route>
+      <Route exact path="/dasturlar/uz"><Dasturlar/></Route> 
       <Route exact path="/oshxona/uz"><Oshxona/></Route>
-      <Route exact path="/login"><Login/></Route>
+      {/* <Route exact path="/login"><Login/></Route> */}
       <Route exact path="/educator"><CabinetEducator/></Route>
       <Route exact path="/yoga/uz"><Yoga/></Route>
       <Route exact path="/musiqa/uz"><Musiqa/></Route>
