@@ -78,21 +78,8 @@ componentDidMount() {
                <div className={styles.body}>
                    <div className={styles.title}><h1>Nega biz</h1></div>
                    <div className={styles.text}>
-                        <p><strong>SEVGI VA KO'PROQ SEVGI</strong></p>
                         <p>Flamingoning talabalari juda yaxshi ko'rishadi. Biz o'zimizni bolalar, o'qituvchilar va ma'murlardan iborat g'amxo'r o'quv jamoasini yaratishga bag'ishlaymiz. Bizning ajoyib o'qituvchilar jamoasi sizning kichkintoyingiz bilan abadiy aloqada bo'ladi va uni yulduzlarga intilishga undaydi. Bizning g'amxo'r ma'murlarimiz mijozlarga ajoyib xizmat ko'rsatishadi, chunki mehmondo'stlik biz uchun juda muhimdir. Biz har kuni ertalab / kechqurun oilangizni maktabimizga qabul qilamiz va sizga yordam kerak bo'lsa, shaxsiy narsalaringiz bilan yordam beramiz.
-                        </p>
-                        <p><strong>YAXSHI YUMALOQ O'QUV REJASI</strong></p>
-                        <p>O'quv dasturi chegaralarni uzaytiradi, chunki barcha Flamingo talabalari o'zlarining traektoriya yo'llarida rivojlanish uchun katta imkoniyatlarga ega! Bog'dorchilik, ochiq havoda BEACH, STEAM juma kunlari, katta to'q sariq rangli o'yin maydonchasi va jazli musiqa havzalari kabi boshqa tadbirlar va loyihalar Flamingo-da ta'limni eng yuqori darajadagi va injiq qiladi.
-                        </p>
-                        <p><strong>XAVFSIZLIK VA SOG'LIQNI SAQLASH</strong></p>
-                        <p>Bizning shaxsiy ro'yxatdan o'tgan hamshiramiz bizni katta boo-boo va iicky mikroblaridan asrab qolishimiz uchun juda yaxshi ishni bajaradi! Kamera kabi xavfsizlik xususiyatlari bizni xavfsizligini ta'minlaydi, chunki biz banklar va aeroportlar bilan bir xil tizimlardan foydalanamiz.
-                        </p>
-                        <p><strong>MEXRIBONLIK ELCHILARI</strong></p>
-                        <p>Flamingo bitiruvchilari muvaffaqiyatli ekanligi va bolalar bog'chasi darajasidan tashqarida ekanligi isbotlangan. Natijada ba'zi birlar xususiy maktablarga, Iqtidorli va iste'dodli o'quvchilarga yoki boshlang'ich maktablarning etakchilariga borishadi. Qaerga borishidan qat'i nazar, ular muammoga duch kelmoqdalar.
-                        </p>
-                        <p>
-                        Yaqinda sizni orolda ko'rishga umid qilamiz!
-                        </p>
+                        </p><br />
                    </div>
                </div>
              </body>

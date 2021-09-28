@@ -261,14 +261,13 @@ export default class Dashboard extends Component {
                   <Col
                     lg={12}
                     style={{
-                      border: "1px solid rgba(0,0,0,0.1)",
                       width: "95%",
                       marginLeft: "2.5%",
                       marginBottom: "50px",
                     }}
                   >
                     <Dashboardnews />
-                    <Row>
+                    <Row style={{border: "1px solid rgba(0,0,0,0.1)"}}>
                       <Col lg={7} style={{ padding: "0" }}>
                         <img alt="" src={rasm4} style={{ width: "100%" }} />
                       </Col>
@@ -296,7 +295,6 @@ export default class Dashboard extends Component {
                   <Col
                     lg={12}
                     style={{
-                      border: "1px solid rgba(0,0,0,0.1)",
                       width: "95%",
                       marginLeft: "2.5%",
                       marginBottom: "50px",
@@ -304,7 +302,7 @@ export default class Dashboard extends Component {
                   >
                     {" "}
                     <Dashboardtadbir />
-                    <Row>
+                    <Row style={{border: "1px solid rgba(0,0,0,0.1)"}}>
                       <Col lg={5} className={styles.heading1}>
                         <h1>
                           Bizning dunyomizni bir vaqtning o'zida bitta bolani

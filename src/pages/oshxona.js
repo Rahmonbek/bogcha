@@ -134,20 +134,7 @@ Sut</div>
                              <div style={{marginLeft:'100px'}}>Xom sabzavotli sabzi (sabzi, selderey tayoqchalari, qizil qalampir bo'laklari) pishirilgan tortilla chiplari yoki bug'doy pita noni
 Suv</div>
                             </div>
-                        <hr style={{backgroundColor:'#F76B6A',height:'2px'}}/>
-
-                        <h2>Bolalar va yuqori simob baliqlari</h2>
-                             <p>Bir yoshdan to'rt yoshgacha bo'lgan bolalar uchun muzlatilgan / yangi orkinos, akula, qilich baliq, marlin, apelsin qo'pol va eskolar oyiga 75 grammgacha cheklanadi. Ushbu baliqlarda yuqori miqdordagi simob mavjud. Besh yoshdan 11 yoshgacha bo'lgan yosh bolalar oyiga bu yirik, yirtqich baliqlardan 125 grammgacha ega bo'lishlari mumkin.
-
-Bir yoshdan to'rt yoshgacha bo'lgan bolalar uchun albacore ("oq") konservalangan orkinosni haftasiga 75 grammgacha cheklash. Besh yoshdan 11 yoshgacha bo'lgan yosh bolalar haftasiga 150 grammgacha yoki albacore ("oq") orkinosni iste'mol qilishlari mumkin. Albakore ("oq") konservalangan orkinos konservalangan engil orkinosdan ko'ra ko'proq simobga ega.</p>
-                            <h2>Maktabgacha yoshdagi bolangizni ovqatlantirish bo'yicha maslahatlar (3 yoshdan 5 yoshgacha)</h2>
-                            <ul>
-                                <li>Farzandingiz siz taklif qilayotgan ovqatlardan nimani va qancha iste'mol qilishni hal qilsin. Har ovqatda har xil tanish ovqatlar va yangi ovqatlarni taklif qilishni davom eting.</li>
-                                <li>Ovqatlanish paytida doimo bolangizni kuzatib boring. Boğulmamak uchun oziq-ovqatlarni tishlash hajmiga bo'laklarga bo'ling.</li>
-                                <li>Siz to'liq yog'li sutdan (3,25%) sutsiz, 1% yoki 2% sutga o'tishingiz mumkin. Ushbu yoshda boyitilgan soya, guruch, bodom yoki kokos yong'og'i ichimliklari ham kiritilishi mumkin. Turli xil sut va ichimliklardagi foydali moddalarni ko'rish uchun ushbu jadvaldan foydalaning.</li>
-                                <li>Ovqatlanish oralig'ida suv bering. Ovqat oralig'ida sut yoki sharbatni ho'llash ishtahani pasaytirishi mumkin. Agar siz bolangizga sharbat bersangiz, 100% meva sharbatini taklif qiling va kuniga 4 - 6 oz (125-175 ml) gacha cheklang.</li>
-                                <li>Uyda tayyorlanadigan taomlar va aperatiflarni tez-tez iste'mol qiling. Sog'lom uy retseptlarini tayyorlang. Tovuq takolari, vegetarian chili va mevali va jo'xori kefallarini sinab ko'ring.</li>
-                            </ul>
+                        
                             </Col>
                         </Row>
                     </Container>
