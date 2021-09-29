@@ -58,7 +58,7 @@ export default class teachers1 extends Component {
     return (
       <div style={{ padding: "3%" }}>
         <div className={styles.formAdmin}>
-          <h4>O'quvchi kiritish</h4>
+          <h4>Tarbiyachini kiritish</h4>
           <Form id="formAdmin">
             <Form.Group controlId="name" style={{ marginBottom: "20px" }}>
               <Form.Control
@@ -77,33 +77,33 @@ export default class teachers1 extends Component {
             <Form.Group controlId="otaname" style={{ marginBottom: "20px" }}>
               <Form.Control
                 type="text"
-                placeholder="Otasining F.I.O"
+                placeholder="Mutaxasislik"
                 defaultValue={this.state.kids1.otasi.ismi}
               />
             </Form.Group>
             <Form.Group controlId="otatel" style={{ marginBottom: "20px" }}>
               <Form.Control
                 type="text"
-                placeholder="Otasining telefon raqami"
+                placeholder="Oliygohi"
                 defaultValue={this.state.kids1.otasi.tel}
                 onChange={(e) => this.handleImage(e)}
               />
             </Form.Group>
-            <Form.Group controlId="onaname" style={{ marginBottom: "20px" }}>
+            {/* <Form.Group controlId="onaname" style={{ marginBottom: "20px" }}>
               <Form.Control
                 type="text"
                 placeholder="Onasining F.I.O"
                 defaultValue={this.state.kids1.onasi.ismi}
               />
-            </Form.Group>
-            <Form.Group controlId="otel" style={{ marginBottom: "20px" }}>
+            </Form.Group> */}
+            {/* <Form.Group controlId="otel" style={{ marginBottom: "20px" }}>
               <Form.Control
                 type="text"
                 placeholder="Onasining telefon raqami"
                 defaultValue={this.state.kids1.onasi.tel}
                 onChange={(e) => this.handleImage(e)}
               />
-            </Form.Group>
+            </Form.Group> */}
 
             <Button
               variant="primary"
