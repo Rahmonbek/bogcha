@@ -77,7 +77,7 @@ export default class Dashboard extends Component {
             <PacmanLoader
               size={20}
               color={"#FF8080"}
-              loading={this.state.loader} 
+              loading={this.state.loader}
             />
           </div>
         ) : (
@@ -173,7 +173,7 @@ export default class Dashboard extends Component {
                     <img alt="" src={icon5} />
                     <p>
                       <Link style={{ color: "white" }} to="/cooking/uz">
-                        Shirinlik 
+                        Shirinlik
                       </Link>
                     </p>
                   </Col>
@@ -219,7 +219,17 @@ export default class Dashboard extends Component {
                           qo'llab-quvvatlanadi.
                         </p>
                         <span>
-                          <Link to="/loving/uz">Batafsil</Link>
+                          <Link
+                            to="/loving/uz"
+                            style={{
+                              padding: "10px 15px",
+                              color: "white",
+                              backgroundColor: "#f76b6a",
+                              borderRadius: "7px",
+                            }}
+                          >
+                            Batafsil
+                          </Link>
                         </span>
                         <img alt="" src={border} />
                       </Col>
@@ -248,7 +258,17 @@ export default class Dashboard extends Component {
                           discovery.
                         </p>
                         <span>
-                          <Link to="/wonder/uz">Batafsil</Link>
+                          <Link
+                            to="/wonder/uz"
+                            style={{
+                              padding: "10px 15px",
+                              color: "white",
+                              backgroundColor: "#f76b6a",
+                              borderRadius: "7px",
+                            }}
+                          >
+                            Batafsil
+                          </Link>
                         </span>
                         <img alt="" src={border} className={styles.img1} />
                       </Col>
@@ -267,7 +287,7 @@ export default class Dashboard extends Component {
                     }}
                   >
                     <Dashboardnews />
-                    <Row style={{border: "1px solid rgba(0,0,0,0.1)"}}>
+                    <Row style={{ border: "1px solid rgba(0,0,0,0.1)" }}>
                       <Col lg={7} style={{ padding: "0" }}>
                         <img alt="" src={rasm4} style={{ width: "100%" }} />
                       </Col>
@@ -286,7 +306,17 @@ export default class Dashboard extends Component {
                           Vinchi
                         </p>
                         <span>
-                          <Link to="/leadership/uz">Batafsil</Link>
+                          <Link
+                            to="/leadership/uz"
+                            style={{
+                              padding: "10px 15px",
+                              color: "white",
+                              backgroundColor: "#f76b6a",
+                              borderRadius: "7px",
+                            }}
+                          >
+                            Batafsil
+                          </Link>
                         </span>
                         <img alt="" src={border} />
                       </Col>
@@ -302,7 +332,7 @@ export default class Dashboard extends Component {
                   >
                     {" "}
                     <Dashboardtadbir />
-                    <Row style={{border: "1px solid rgba(0,0,0,0.1)"}}>
+                    <Row style={{ border: "1px solid rgba(0,0,0,0.1)" }}>
                       <Col lg={5} className={styles.heading1}>
                         <h1>
                           Bizning dunyomizni bir vaqtning o'zida bitta bolani
@@ -322,7 +352,17 @@ export default class Dashboard extends Component {
                           ham o'zgaradi." Gandi
                         </p>
                         <span>
-                          <Link to="/changing/uz">Batafsil</Link>
+                          <Link
+                            to="/changing/uz"
+                            style={{
+                              padding: "10px 15px",
+                              color: "white",
+                              backgroundColor: "#f76b6a",
+                              borderRadius: "7px",
+                            }}
+                          >
+                            Batafsil
+                          </Link>
                         </span>
                         <img alt="" src={border} className={styles.img1} />
                       </Col>

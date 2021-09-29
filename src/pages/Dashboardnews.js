@@ -71,7 +71,18 @@ export default class Dashboardnews extends Component {
                             <i class="fas fa-calendar-alt"></i> 14/08/2020
                           </p>
                           <Link to="/yangilik/uz">
-                            <p>Batafsil</p>
+                            <p
+                              style={{
+                                color: "white",
+                                backgroundColor: "#f76b6a",
+                                width: "70px",
+                                padding: "3px 10px",
+                                border: "1px solid #f76b6a",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              Batafsil
+                            </p>
                           </Link>
                         </MDBCardText>
                       </MDBCardBody>
@@ -96,7 +107,59 @@ export default class Dashboardnews extends Component {
                             <i class="fas fa-calendar-alt"></i> 14/08/2020
                           </p>
                           <Link to="/yangilik/uz">
-                            <p>Batafsil</p>
+                            <p
+                              style={{
+                                color: "white",
+                                backgroundColor: "#f76b6a",
+                                width: "70px",
+                                padding: "3px 10px",
+                                border: "1px solid #f76b6a",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              Batafsil
+                            </p>
+                          </Link>
+                        </MDBCardText>
+                      </MDBCardBody>
+                    </MDBCard>
+                  </MDBCol>
+                </div>
+                <div>
+                  <MDBCol style={{ margin: "10px" }}>
+                    <MDBCard className="h-100" className={styles.card}>
+                      <MDBCardImage
+                        src={news1}
+                        className={styles.img}
+                        alt="..."
+                        position="top"
+                      />
+                      <MDBCardBody>
+                        <MDBCardTitle>
+                          Bog'chamizga Prezident tashrif buyirdi
+                        </MDBCardTitle>
+                        <MDBCardText>
+                          <p>
+                            <i class="fas fa-calendar-alt"></i> 14/08/2020
+                          </p>
+                          <Link
+                            to="/yangilik/uz"
+                            style={{
+                              color: "#f76b6a",
+                            }}
+                          >
+                            <p
+                              style={{
+                                color: "white",
+                                backgroundColor: "#f76b6a",
+                                width: "70px",
+                                padding: "3px 10px",
+                                border: "1px solid #f76b6a",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              Batafsil
+                            </p>
                           </Link>
                         </MDBCardText>
                       </MDBCardBody>
@@ -121,32 +184,18 @@ export default class Dashboardnews extends Component {
                             <i class="fas fa-calendar-alt"></i> 14/08/2020
                           </p>
                           <Link to="/yangilik/uz">
-                            <p>Batafsil</p>
-                          </Link>
-                        </MDBCardText>
-                      </MDBCardBody>
-                    </MDBCard>
-                  </MDBCol>
-                </div>
-                <div>
-                  <MDBCol style={{ margin: "10px" }}>
-                    <MDBCard className="h-100" className={styles.card}>
-                      <MDBCardImage
-                        src={news1}
-                        className={styles.img}
-                        alt="..."
-                        position="top"
-                      />
-                      <MDBCardBody>
-                        <MDBCardTitle>
-                          Bog'chamizga Prezident tashrif buyirdi
-                        </MDBCardTitle>
-                        <MDBCardText>
-                          <p>
-                            <i class="fas fa-calendar-alt"></i> 14/08/2020
-                          </p>
-                          <Link to="/yangilik/uz">
-                            <p>Batafsil</p>
+                            <p
+                              style={{
+                                color: "white",
+                                backgroundColor: "#f76b6a",
+                                width: "70px",
+                                padding: "3px 10px",
+                                border: "1px solid #f76b6a",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              Batafsil
+                            </p>
                           </Link>
                         </MDBCardText>
                       </MDBCardBody>

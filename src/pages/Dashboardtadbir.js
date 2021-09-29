@@ -27,17 +27,17 @@ export default class Dashboardtadbir extends Component {
       desktop: {
         breakpoint: { max: 3000, min: 1024 },
         items: 3,
-        slidesToSlide: 1, 
+        slidesToSlide: 1,
       },
       tablet: {
         breakpoint: { max: 1024, min: 464 },
         items: 2,
-        slidesToSlide: 1, 
+        slidesToSlide: 1,
       },
       mobile: {
         breakpoint: { max: 464, min: 0 },
         items: 1,
-        slidesToSlide: 1, 
+        slidesToSlide: 1,
       },
     };
     return (
@@ -70,7 +70,7 @@ export default class Dashboardtadbir extends Component {
                         <MDBCardText>
                           <p>
                             <FaCalendarAlt
-                              style={{ fontSize: "17px", color: "#FF8080", }}
+                              style={{ fontSize: "17px", color: "#FF8080" }}
                             />{" "}
                             <span>14/08/2020</span>
                           </p>
@@ -80,8 +80,19 @@ export default class Dashboardtadbir extends Component {
                             />{" "}
                             <span>133-bog'cha</span>
                           </p>
-                          <Link to="/tadbir/uz" style={{color:"white",padding:"10px 15px",backgroundColor:"#f76b6a",borderRadius:"7px"}}>
-                            <p style={{ color: "rgba(0,0,0,0.6)" }}>Batafsil</p>
+                          <Link to="/tadbir/uz">
+                            <p
+                              style={{
+                                color: "white",
+                                backgroundColor: "#f76b6a",
+                                width: "70px",
+                                padding: "3px 10px",
+                                border: "1px solid #f76b6a",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              Batafsil
+                            </p>
                           </Link>
                         </MDBCardText>
                       </MDBCardBody>
@@ -114,8 +125,19 @@ export default class Dashboardtadbir extends Component {
                             />{" "}
                             <span>133-bog'cha</span>
                           </p>
-                          <Link to="/tadbir/uz" style={{color:"white",padding:"10px 15px",backgroundColor:"#f76b6a",borderRadius:"7px"}}>
-                            <p style={{ color: "rgba(0,0,0,0.6)" }}>Batafsil</p>
+                          <Link to="/tadbir/uz">
+                            <p
+                              style={{
+                                color: "white",
+                                backgroundColor: "#f76b6a",
+                                width: "70px",
+                                padding: "3px 10px",
+                                border: "1px solid #f76b6a",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              Batafsil
+                            </p>
                           </Link>
                         </MDBCardText>
                       </MDBCardBody>
@@ -148,8 +170,19 @@ export default class Dashboardtadbir extends Component {
                             />{" "}
                             <span>133-bog'cha</span>
                           </p>
-                          <Link to="/tadbir/uz" style={{color:"white",padding:"10px 15px",backgroundColor:"#f76b6a",borderRadius:"7px"}}>
-                            <p style={{ color: "rgba(0,0,0,0.6)" }}>Batafsil</p>
+                          <Link to="/tadbir/uz">
+                            <p
+                              style={{
+                                color: "white",
+                                backgroundColor: "#f76b6a",
+                                width: "70px",
+                                padding: "3px 10px",
+                                border: "1px solid #f76b6a",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              Batafsil
+                            </p>
                           </Link>
                         </MDBCardText>
                       </MDBCardBody>
@@ -182,8 +215,19 @@ export default class Dashboardtadbir extends Component {
                             />{" "}
                             <span>133-bog'cha</span>
                           </p>
-                          <Link to="/tadbir/uz" style={{color:"white",padding:"10px 15px",backgroundColor:"#f76b6a",borderRadius:"7px"}}>
-                            <p style={{ color: "rgba(0,0,0,0.6)" }}>Batafsil</p>
+                          <Link to="/tadbir/uz">
+                            <p
+                              style={{
+                                color: "white",
+                                backgroundColor: "#f76b6a",
+                                width: "70px",
+                                padding: "3px 10px",
+                                border: "1px solid #f76b6a",
+                                borderRadius: "10px",
+                              }}
+                            >
+                              Batafsil
+                            </p>
                           </Link>
                         </MDBCardText>
                       </MDBCardBody>

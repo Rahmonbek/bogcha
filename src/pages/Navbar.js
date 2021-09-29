@@ -8,6 +8,7 @@ import {
   FaBars,
   FaInstagramSquare,
   FaFacebookSquare,
+  FaFacebook,
 } from "react-icons/fa";
 import rasm1 from "../img/ftr-logo.png";
 import rasm5 from "../img/logo-dark.png";
@@ -314,6 +315,28 @@ export default class Navbar extends Component {
                       <span>
                         <a href="http://t.me/Karshiyeva_N">
                           <FaTelegramPlane
+                            style={{
+                              color: "white",
+                              fontSize: "23px",
+                              marginLeft: "10px",
+                            }}
+                          />
+                        </a>
+                      </span>
+                      <span>
+                        <a href="http://t.me/Karshiyeva_N">
+                          <FaInstagram
+                            style={{
+                              color: "white",
+                              fontSize: "23px",
+                              marginLeft: "10px",
+                            }}
+                          />
+                        </a>
+                      </span>
+                      <span>
+                        <a href="http://t.me/Karshiyeva_N">
+                          <FaFacebook
                             style={{
                               color: "white",
                               fontSize: "23px",
