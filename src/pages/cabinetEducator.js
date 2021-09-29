@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import NavbarKabinet from "./NavbarKabinet";
 import Kids from "./kids";
+import Rahbarlar from "./Rahbarlar";
 import {
   FaHome,
   FaPhoneAlt,
@@ -23,6 +24,7 @@ import {
   ContainerOutlined,
   MailOutlined,
 } from "@ant-design/icons";
+import Rahbariyat from "./Rahbariyat";
 export default class CabinetEducator extends Component {
   state = {
     collapsed: false,
@@ -128,18 +130,7 @@ export default class CabinetEducator extends Component {
                       key="2"
                       icon={<DesktopOutlined />}
                     >
-                      Option 2
-                    </Menu.Item>
-                    <Menu.Item
-                      style={{
-                        color: "white",
-                        fontWeight: "600",
-                        fontSize: "16px",
-                      }}
-                      key="3"
-                      icon={<ContainerOutlined />}
-                    >
-                      Option 3
+                      <Link to="/kids"> O'quvchilar</Link>
                     </Menu.Item>
 
                     <Menu.Item
@@ -156,14 +147,16 @@ export default class CabinetEducator extends Component {
                           padding: "10px 30px",
                         }}
                       >
-                        <Link style={{ color: "#F76B6A", fontWeight: "800" }}>
+                        <Link
+                          to="/"
+                          style={{ color: "#F76B6A", fontWeight: "800" }}
+                        >
                           Chiqish
                         </Link>
                       </button>
                     </Menu.Item>
                   </Menu>
                 </div>
-                <Kids />
               </BrowserRouter>
             </div>
           </div>
