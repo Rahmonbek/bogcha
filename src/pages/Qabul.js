@@ -4,7 +4,7 @@ export default class Qabul extends Component {
     render() {
         return (
             <div>
-                
+                Qabul
             </div>
         )
     }
