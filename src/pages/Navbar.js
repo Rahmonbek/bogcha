@@ -146,14 +146,14 @@ export default class Navbar extends Component {
                 </span>
                 <span>
                   <a href="http://t.me/Karshiyeva_N">
-                    <FaInstagramSquare
+                    <FaInstagram
                       style={{ color: "#FF8080", fontSize: "23px" }}
                     />
                   </a>
                 </span>
                 <span>
                   <a href="http://t.me/Karshiyeva_N">
-                    <FaFacebookSquare
+                    <FaFacebook
                       style={{ color: "#FF8080", fontSize: "23px" }}
                     />
                   </a>
