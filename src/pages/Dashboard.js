@@ -37,6 +37,7 @@ import her3 from "../img/h3.jpg";
 import her4 from "../img/h4.jpg";
 import her5 from "../img/h5.png";
 import her6 from "../img/h6.png";
+import YouTube from "@u-wave/react-youtube";
 
 export default class Dashboard extends Component {
   state = {
@@ -84,9 +85,25 @@ export default class Dashboard extends Component {
           <div>
             <div className={styles.header}>
               <Navbar />
-              <video autoPlay="autoplay" loop="loop" muted>
+              <div className={styles.youtube}>
+                <YouTube
+                  video="Vjkedan2rxA"
+                  autoplay
+                  controls={false}
+                  showRelatedVideos={false}
+                  showInfo={false}
+                  annotations={false}
+                  paused={false}
+                  showCaptions={false}
+                  modestBranding={false}
+                  loop={0}
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+              {/* <video autoPlay="autoplay" loop="loop" muted>
                 <source src={kinder} type="video/mp4" />
-              </video>
+              </video> */}
               <div className={styles.btnHeader}>
                 <img alt="" src={rasm2} />
                 <button>Hoziroq qo'ng'iroq qiling!</button>
