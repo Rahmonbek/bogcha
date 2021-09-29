@@ -89,6 +89,7 @@ export default class Dashboard extends Component {
                 <YouTube
                   video="Vjkedan2rxA"
                   autoplay
+                  muted
                   controls={false}
                   showRelatedVideos={false}
                   showInfo={false}
@@ -99,6 +100,7 @@ export default class Dashboard extends Component {
                   loop={0}
                   width="100%"
                   height="100%"
+                  style={{ zIndex: "-7" }}
                 />
               </div>
               {/* <video autoPlay="autoplay" loop="loop" muted>

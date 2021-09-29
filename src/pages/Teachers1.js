@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table, Button, Form } from "react-bootstrap";
 import styles from "../css/kids.module.css";
-export default class teachers1 extends Component {
+export default class Teachers1 extends Component {
   state = {
     kids: [
       {

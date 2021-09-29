@@ -130,12 +130,6 @@ function App() {
         <Route exact path="/rahbariyat/uz">
           <Rahbariyat />
         </Route>
-        <Route exact path="/rahbarlar/uz">
-          <Rahbarlar />
-        </Route>
-        <Route exact path="/kids/uz">
-          <Kids />
-        </Route>
       </Switch>
     </BrowserRouter>
   );

@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import NavbarKabinet from "./NavbarKabinet";
 import Kids from "./kids";
 import Rahbarlar from "./Rahbarlar";
+import Teachers1 from "./Teachers1";
 import {
   FaHome,
   FaPhoneAlt,
@@ -82,7 +83,6 @@ export default class CabinetEducator extends Component {
                   <Menu
                     style={{ backgroundColor: "#FF8080" }}
                     defaultSelectedKeys={["1"]}
-                    defaultOpenKeys={["sub1"]}
                     mode="inline"
                     theme="dark"
                     inlineCollapsed={this.state.collapsed}
@@ -96,7 +96,7 @@ export default class CabinetEducator extends Component {
                       key="1"
                       icon={<PieChartOutlined />}
                     >
-                      Dashboard
+                      <Link to="/educator">Dashboard</Link>
                     </Menu.Item>
                     <SubMenu
                       key="sub1"
@@ -112,13 +112,13 @@ export default class CabinetEducator extends Component {
                         style={{ backgroundColor: "white", color: "#FF8080" }}
                         key="5"
                       >
-                        Rahbarlar
+                        <Link to="/educator/rahbarlar">Rahbarlar</Link>
                       </Menu.Item>
                       <Menu.Item
                         style={{ backgroundColor: "white", color: "#FF8080" }}
                         key="6"
                       >
-                        Tarbiyachilar
+                        <Link to="/educator/tarbiyachilar">Tarbiyachilar</Link>
                       </Menu.Item>
                     </SubMenu>
                     <Menu.Item
@@ -130,7 +130,7 @@ export default class CabinetEducator extends Component {
                       key="2"
                       icon={<DesktopOutlined />}
                     >
-                      <Link to="/kids"> O'quvchilar</Link>
+                      <Link to="/educator/kids">O'quvchilar</Link>
                     </Menu.Item>
 
                     <Menu.Item
@@ -149,6 +149,7 @@ export default class CabinetEducator extends Component {
                       >
                         <Link
                           to="/"
+                          target="_parent"
                           style={{ color: "#F76B6A", fontWeight: "800" }}
                         >
                           Chiqish
@@ -157,6 +158,17 @@ export default class CabinetEducator extends Component {
                     </Menu.Item>
                   </Menu>
                 </div>
+                <Switch>
+                  <Route exact path="/educator/rahbarlar">
+                    <Rahbarlar />
+                  </Route>
+                  <Route exact path="/educator/tarbiyachilar">
+                    <Teachers1 />
+                  </Route>
+                  <Route exact path="/educator/kids">
+                    <Kids />
+                  </Route>
+                </Switch>
               </BrowserRouter>
             </div>
           </div>
