@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Table, Button, Form } from "react-bootstrap";
+import { Table, Button, Form, Row, Col } from "react-bootstrap";
 import styles from "../css/kids.module.css";
+import moment from "moment";
+import { DatePicker, Space } from "antd";
 export default class Rahbarlar extends Component {
   state = {
     kids: [
@@ -55,40 +57,92 @@ export default class Rahbarlar extends Component {
     },
   };
   render() {
+    const { RangePicker } = DatePicker;
+    const dateFormat = "YYYY/MM/DD";
+    const customFormat = (value) =>
+      `custom format: ${value.format(dateFormat)}`;
+
     return (
       <div style={{ padding: "3%" }}>
         <div className={styles.formAdmin}>
-          <h4>O'quvchi kiritish</h4>
-          <Form id="formAdmin">
-            <Form.Group controlId="name" style={{ marginBottom: "20px" }}>
-              <Form.Control
-                type="text"
-                placeholder="F.I.O"
-                defaultValue={this.state.kids1.name}
-              />
-            </Form.Group>
-            <Form.Group controlId="sana" style={{ marginBottom: "20px" }}>
-              <Form.Control
-                type="text"
-                placeholder="Tug'ilgan sanasi"
-                defaultValue={this.state.kids1.sana}
-              />
-            </Form.Group>
-            <Form.Group controlId="otm" style={{ marginBottom: "20px" }}>
-              <Form.Control
-                type="text"
-                placeholder="O.T.M"
-                defaultValue={this.state.kids1.name}
-              />
-            </Form.Group>
-            <Form.Group controlId="about" style={{ marginBottom: "20px" }}>
-              <Form.Control
-                type="text"
-                placeholder="Haqida"
-                defaultValue={this.state.kids1.name}
-              />
-            </Form.Group>
+          <h4>Rahbar kiritish</h4>
 
+          <Form id="formAdmin">
+            <Row>
+              <Col>
+                {" "}
+                <Form.Group controlId="name" style={{ marginBottom: "20px" }}>
+                  <Form.Label>Familiya,ism,sharifni kiriting</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="F.I.Sh"
+                    defaultValue={this.state.kids1.name}
+                  />
+                </Form.Group>
+                <Form.Group controlId="otm" style={{ marginBottom: "20px" }}>
+                  <Form.Label>Tamomlagan oliy ta'lim muassasasi</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="O.T.M"
+                    defaultValue={this.state.kids1.name}
+                  />
+                </Form.Group>
+                <Form.Group controlId="about" style={{ marginBottom: "20px" }}>
+                  <Form.Label>Mutaxasisligini kiritng</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Mutaxasisligi"
+                    defaultValue={this.state.kids1.name}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Email manzil kiriting</Form.Label>
+                  <Form.Control type="email" placeholder="email kiriting" />
+                </Form.Group>
+                <Form.Group controlId="about" style={{ marginBottom: "20px" }}>
+                  <Form.Label>Telegram manzil kiriting</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Telegram"
+                    defaultValue={this.state.kids1.name}
+                  />
+                </Form.Group>
+              </Col>
+              <Col>
+                {" "}
+                <Form.Group controlId="sana" style={{ marginBottom: "20px" }}>
+                  <Form.Label>Ishlaydigan lavozimi</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Lavozimi"
+                    defaultValue={this.state.kids1.sana}
+                  />
+                </Form.Group>
+                <Form.Group controlId="formFile" className="mb-3">
+                  <Form.Label>Rasm kiriting </Form.Label>
+                  <Form.Control type="file" />
+                </Form.Group>
+                <Form.Group controlId="PhoneNumber" className="mb-3">
+                  <Form.Label>Telefon raqam kiriting </Form.Label>
+                  <Form.Control type="Number" placeholder="Telefon raqam" />
+                </Form.Group>
+                <Form.Group controlId="about" style={{ marginBottom: "20px" }}>
+                  <Form.Label>Qo'shimcha ma'lumot</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Haqida"
+                    defaultValue={this.state.kids1.name}
+                  />
+                </Form.Group>
+                <Space direction="vertical" size={12}>
+                  <Form.Label>Tug'ilgan yil,oy,sanani kiriting</Form.Label>
+                  <DatePicker
+                    defaultValue={moment("2015/01/01", dateFormat)}
+                    format={dateFormat}
+                  />
+                </Space>
+              </Col>
+            </Row>
             <Button
               variant="primary"
               className={styles.inputFormBtn}

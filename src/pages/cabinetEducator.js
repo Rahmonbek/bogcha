@@ -81,22 +81,24 @@ export default class CabinetEducator extends Component {
                     )}
                   </Button>
                   <Menu
-                    style={{ backgroundColor: "#FF8080" }}
+                    style={{ backgroundColor: "black" }}
                     defaultSelectedKeys={["1"]}
                     mode="inline"
+                    className="Linkdashboard"
                     theme="dark"
                     inlineCollapsed={this.state.collapsed}
                   >
-                    <Menu.Item
-                      style={{
-                        color: "white",
-                        fontWeight: "600",
-                        fontSize: "16px",
-                      }}
-                      key="1"
-                      icon={<PieChartOutlined />}
-                    >
-                      <Link to="/educator">Dashboard</Link>
+                    <Menu.Item key="1" icon={<PieChartOutlined />}>
+                      <Link
+                        to="/educator"
+                        style={{
+                          color: "white",
+                          fontWeight: "600",
+                          fontSize: "16px",
+                        }}
+                      >
+                        Dashboard
+                      </Link>
                     </Menu.Item>
                     <SubMenu
                       key="sub1"
@@ -112,25 +114,44 @@ export default class CabinetEducator extends Component {
                         style={{ backgroundColor: "white", color: "#FF8080" }}
                         key="5"
                       >
-                        <Link to="/educator/rahbarlar">Rahbarlar</Link>
+                        <Link
+                          to="/educator/rahbarlar"
+                          style={{
+                            color: "white",
+                            fontWeight: "600",
+                            fontSize: "16px",
+                          }}
+                        >
+                          Rahbarlar
+                        </Link>
                       </Menu.Item>
                       <Menu.Item
                         style={{ backgroundColor: "white", color: "#FF8080" }}
                         key="6"
                       >
-                        <Link to="/educator/tarbiyachilar">Tarbiyachilar</Link>
+                        <Link
+                          to="/educator/tarbiyachilar"
+                          style={{
+                            color: "white",
+                            fontWeight: "600",
+                            fontSize: "16px",
+                          }}
+                        >
+                          Tarbiyachilar
+                        </Link>
                       </Menu.Item>
                     </SubMenu>
-                    <Menu.Item
-                      style={{
-                        color: "white",
-                        fontWeight: "600",
-                        fontSize: "16px",
-                      }}
-                      key="2"
-                      icon={<DesktopOutlined />}
-                    >
-                      <Link to="/educator/kids">O'quvchilar</Link>
+                    <Menu.Item key="2" icon={<DesktopOutlined />}>
+                      <Link
+                        to="/educator/kids"
+                        style={{
+                          color: "white",
+                          fontWeight: "600",
+                          fontSize: "16px",
+                        }}
+                      >
+                        O'quvchilar
+                      </Link>
                     </Menu.Item>
 
                     <Menu.Item
