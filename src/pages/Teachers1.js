@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Table, Button, Form } from "react-bootstrap";
+import { Table, Button, Form, Row, Col } from "react-bootstrap";
 import styles from "../css/kids.module.css";
-export default class Teachers1 extends Component {
+export default class teachers1 extends Component {
   state = {
     kids: [
       {
@@ -37,7 +37,7 @@ export default class Teachers1 extends Component {
         },
         onasi: {
           ismi: "Toshmatova Sabina",
-          tel: "+27364712672",
+           tel: "+27364712672",
         },
       },
     ],
@@ -60,28 +60,80 @@ export default class Teachers1 extends Component {
         <div className={styles.formAdmin}>
           <h4>Tarbiyachini kiritish</h4>
           <Form id="formAdmin">
-            <Form.Group controlId="name" style={{ marginBottom: "20px" }}>
+          <Row>
+            <Col lg={6} md={6} sm={12}>          <Form.Group controlId="name" style={{ marginBottom: "20px" }}>
+            <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Familla ism sharif</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="F.I.O"
+                placeholder="F.I.Sh"
                 defaultValue={this.state.kids1.name}
               />
             </Form.Group>
+  </Col>
+            <Col lg={6} md={6} sm={12}>
+            <Form.Group controlId="otel" style={{ marginBottom: "20px" }}>
+              <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Lavozim</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Lavozim"
+                defaultValue={this.state.kids1.onasi.tel}
+                onChange={(e) => this.handleImage(e)}
+              />
+            </Form.Group></Col>
+            <Col lg={6} md={6} sm={12}>
             <Form.Group controlId="sana" style={{ marginBottom: "20px" }}>
+           
+              <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Tug'ilgan sana</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Tug'ilgan sanasi"
                 defaultValue={this.state.kids1.sana}
               />
-            </Form.Group>
+            </Form.Group></Col>
+          <Col lg={6} md={6} sm={12}>
             <Form.Group controlId="otaname" style={{ marginBottom: "20px" }}>
+            <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Mutaxasislik</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Mutaxasislik"
                 defaultValue={this.state.kids1.otasi.ismi}
               />
-            </Form.Group>
+            </Form.Group></Col>
+            <Col lg={6} md={6} sm={12}>
             <Form.Group controlId="otatel" style={{ marginBottom: "20px" }}>
+            <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Telefon raqam</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Telefon raqam"
+                defaultValue={this.state.kids1.otasi.tel}
+                onChange={(e) => this.handleImage(e)}
+              />
+            </Form.Group></Col>
+            <Col lg={6} md={6} sm={12}>
+            <Form.Group controlId="otatel" style={{ marginBottom: "20px" }}>
+            <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Elektron pochta</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="gmail.com"
+                defaultValue={this.state.kids1.otasi.tel}
+                onChange={(e) => this.handleImage(e)}
+              />
+            </Form.Group>
+            </Col>
+            <Col lg={6} md={6} sm={12}>
+            <Form.Group controlId="otatel" style={{ marginBottom: "20px" }}>
+            <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Telegram</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Telegram"
+                defaultValue={this.state.kids1.otasi.tel}
+                onChange={(e) => this.handleImage(e)}
+              />
+            </Form.Group>
+            </Col>
+            <Col lg={6} md={6} sm={12}>
+            <Form.Group controlId="otatel" style={{ marginBottom: "20px" }}>
+            <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Oliygohi</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Oliygohi"
@@ -89,21 +141,19 @@ export default class Teachers1 extends Component {
                 onChange={(e) => this.handleImage(e)}
               />
             </Form.Group>
-            {/* <Form.Group controlId="onaname" style={{ marginBottom: "20px" }}>
+            </Col>
+            </Row>
+            <Form.Group controlId="onaname" style={{ marginBottom: "20px" }}>
+            <Form.Label style={{fontSize: "20px" , paddingLeft: "10px" }}>Qo'shimcha ma'lumot</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Onasining F.I.O"
+                as="textarea"
+                rows={4}
+                placeholder="Qo'shimcha ma'lumot"
                 defaultValue={this.state.kids1.onasi.ismi}
               />
-            </Form.Group> */}
-            {/* <Form.Group controlId="otel" style={{ marginBottom: "20px" }}>
-              <Form.Control
-                type="text"
-                placeholder="Onasining telefon raqami"
-                defaultValue={this.state.kids1.onasi.tel}
-                onChange={(e) => this.handleImage(e)}
-              />
-            </Form.Group> */}
+            </Form.Group> 
+            
+            {/* */}
 
             <Button
               variant="primary"
