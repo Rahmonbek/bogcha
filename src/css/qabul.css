@@ -1,0 +1,21 @@
+.registratsiya{
+    background-image: url('https://vestikavkaza.ru/upload/2016-02-25/ea3d4df1467f5cee7d2653de33b3ad64.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+
+}
+.text1{
+    text-align: center;
+    padding-top: 298px;
+    font-size: 60px;
+    font-weight: bolder;
+    color: white;
+    font-family: 'Calibri';
+}
+.info{
+    height: 300px;
+    background-color: black;
+    opacity: 0.4;
+    border-radius: 30px 30px 0px 0px;
+}
