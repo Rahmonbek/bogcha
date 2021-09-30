@@ -95,10 +95,6 @@ export default class Rahbarlar extends Component {
                     defaultValue={this.state.kids1.name}
                   />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email manzil kiriting</Form.Label>
-                  <Form.Control type="email" placeholder="email kiriting" />
-                </Form.Group>
                 <Form.Group controlId="about" style={{ marginBottom: "20px" }}>
                   <Form.Label>Telegram manzil kiriting</Form.Label>
                   <Form.Control
@@ -109,7 +105,10 @@ export default class Rahbarlar extends Component {
                 </Form.Group>
               </Col>
               <Col>
-                {" "}
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Email manzil kiriting</Form.Label>
+                  <Form.Control type="email" placeholder="email kiriting" />
+                </Form.Group>{" "}
                 <Form.Group controlId="sana" style={{ marginBottom: "20px" }}>
                   <Form.Label>Ishlaydigan lavozimi</Form.Label>
                   <Form.Control
@@ -118,21 +117,13 @@ export default class Rahbarlar extends Component {
                     defaultValue={this.state.kids1.sana}
                   />
                 </Form.Group>
-                <Form.Group controlId="formFile" className="mb-3">
-                  <Form.Label>Rasm kiriting </Form.Label>
-                  <Form.Control type="file" />
-                </Form.Group>
                 <Form.Group controlId="PhoneNumber" className="mb-3">
                   <Form.Label>Telefon raqam kiriting </Form.Label>
                   <Form.Control type="Number" placeholder="Telefon raqam" />
                 </Form.Group>
-                <Form.Group controlId="about" style={{ marginBottom: "20px" }}>
-                  <Form.Label>Qo'shimcha ma'lumot</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Haqida"
-                    defaultValue={this.state.kids1.name}
-                  />
+                <Form.Group controlId="formFile" className="mb-3">
+                  <Form.Label>Rasm kiriting </Form.Label>
+                  <Form.Control type="file" />
                 </Form.Group>
                 <Space direction="vertical" size={12}>
                   <Form.Label>Tug'ilgan yil,oy,sanani kiriting</Form.Label>
@@ -143,6 +134,17 @@ export default class Rahbarlar extends Component {
                 </Space>
               </Col>
             </Row>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Qo'shimcha ma'lumot</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Qo'shimcha ma'lumotlar..."
+              />
+            </Form.Group>
             <Button
               variant="primary"
               className={styles.inputFormBtn}
