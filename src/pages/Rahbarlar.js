@@ -103,11 +103,16 @@ export default class Rahbarlar extends Component {
                     defaultValue={this.state.kids1.name}
                   />
                 </Form.Group>
+                <Form.Group controlId="formFile" className="mb-3">
+                  <Form.Label>Rasm kiriting </Form.Label>
+                  <br />
+                  <Form.Control type="file" />
+                </Form.Group>
               </Col>
               <Col>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email manzil kiriting</Form.Label>
-                  <Form.Control type="email" placeholder="email kiriting" />
+                  <Form.Control type="Email" placeholder="Email kiriting" />
                 </Form.Group>{" "}
                 <Form.Group controlId="sana" style={{ marginBottom: "20px" }}>
                   <Form.Label>Ishlaydigan lavozimi</Form.Label>
@@ -120,10 +125,6 @@ export default class Rahbarlar extends Component {
                 <Form.Group controlId="PhoneNumber" className="mb-3">
                   <Form.Label>Telefon raqam kiriting </Form.Label>
                   <Form.Control type="Number" placeholder="Telefon raqam" />
-                </Form.Group>
-                <Form.Group controlId="formFile" className="mb-3">
-                  <Form.Label>Rasm kiriting </Form.Label>
-                  <Form.Control type="file" />
                 </Form.Group>
                 <Space direction="vertical" size={12}>
                   <Form.Label>Tug'ilgan yil,oy,sanani kiriting</Form.Label>
