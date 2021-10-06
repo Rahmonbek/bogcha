@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@u-wave/react-youtube": "^0.7.2",
     "antd": "^4.16.7",
+    "axios": "^0.22.0",
     "bootstrap": "^5.0.2",
     "mdb-react-ui-kit": "^1.0.0-beta7",
     "react": "^17.0.2",

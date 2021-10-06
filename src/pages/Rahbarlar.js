@@ -3,6 +3,7 @@ import { Table, Button, Form, Row, Col } from "react-bootstrap";
 import styles from "../css/kids.module.css";
 import moment from "moment";
 import { DatePicker, Space } from "antd";
+import { getRahbariyat } from "../host/Config";
 export default class Rahbarlar extends Component {
   state = {
     kids: [
@@ -43,6 +44,7 @@ export default class Rahbarlar extends Component {
         },
       },
     ],
+    rahbarlar: [],
     kids1: {
       name: "",
       sana: "",
@@ -56,6 +58,14 @@ export default class Rahbarlar extends Component {
       },
     },
   };
+  getRahbarlar = () => {
+    getRahbariyat()
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
+  componentDidMount() {
+    this.getRahbarlar();
+  }
   render() {
     const { RangePicker } = DatePicker;
     const dateFormat = "YYYY/MM/DD";
