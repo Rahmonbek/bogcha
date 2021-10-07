@@ -15,3 +15,12 @@ export const deleteTeacher = (id) => {
   };
   return httpRequest(config);
 };
+
+export const pushTeacher = (teacher) => {
+  var config = {
+    url: `${url}/rahbariyat/`,
+    method: "post",
+    data: teacher,
+  };
+  return httpRequest(config);
+};

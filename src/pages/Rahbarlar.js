@@ -3,21 +3,26 @@ import { Table, Button, Form, Row, Col } from "react-bootstrap";
 import styles from "../css/kids.module.css";
 import moment from "moment";
 import { DatePicker, Space } from "antd";
-import { deleteTeacher, getRahbariyat } from "../host/Config";
+import { deleteTeacher, getRahbariyat, pushTeacher } from "../host/Config";
 export default class Rahbarlar extends Component {
   state = {
-    // rahbar: [],
     rahbarlar: [],
     kids1: {},
+    image: null,
+    full_name: null,
+    lavozim: null,
+    mutaxassislik: null,
+    otm: null,
+    about: null,
+    phone: null,
+    email: null,
+    telegram: null,
   };
   deleteTeacher = (id) => {
     deleteTeacher(id)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log("ishlamadi");
-      });
+      .then((res) => {})
+      .catch((err) => {});
+    this.getRahbarlar();
   };
   getRahbarlar = () => {
     getRahbariyat()
@@ -28,11 +33,44 @@ export default class Rahbarlar extends Component {
       )
       .catch((err) => console.log(err));
   };
+  customRequest = (e) => {
+    this.setState({ image: e.target.files[0] });
+  };
+  saveTeacher = (e) => {
+    var info = {
+      full_name: document.getElementById("name").value,
+      otm: document.getElementById("otm").value,
+      mutaxassislik: document.getElementById("about").value,
+      telegram: document.getElementById("telegram").value,
+      email: document.getElementById("formBasicEmail").value,
+      lavozim: document.getElementById("lavozim").value,
+      phone: document.getElementById("PhoneNumber").value,
+      about: document.getElementById("exampleForm.ControlTextarea1").value,
+    };
+    var bodyFormData = new FormData();
+    bodyFormData.append("full_name", info.full_name ?? "");
+    bodyFormData.append("otm", info.otm ?? "");
+    bodyFormData.append("mutaxassislik", info.mutaxassislik ?? "");
+    bodyFormData.append("telegram", info.telegram ?? "");
+    bodyFormData.append("email", info.email ?? "");
+    bodyFormData.append("lavozim", info.lavozim ?? "");
+    bodyFormData.append("phone", info.phone ?? "");
+    bodyFormData.append("about", info.about ?? "");
+    bodyFormData.append("image", this.state.image ?? null);
+
+    pushTeacher(FormData)
+      .then((res) => {
+        console.log("ishladi");
+        this.getRahbarlar();
+      })
+      .catch((err) => {
+        console.log("Ishlamadi");
+      });
+  };
   componentDidMount() {
     this.getRahbarlar();
   }
   render() {
-    // const { rahbarlar } = this.state;
     const { RangePicker } = DatePicker;
     const dateFormat = "YYYY/MM/DD";
     const customFormat = (value) =>
@@ -71,7 +109,10 @@ export default class Rahbarlar extends Component {
                     defaultValue={this.state.kids1.name}
                   />
                 </Form.Group>
-                <Form.Group controlId="about" style={{ marginBottom: "20px" }}>
+                <Form.Group
+                  controlId="telegram"
+                  style={{ marginBottom: "20px" }}
+                >
                   <Form.Label>Telegram manzil kiriting</Form.Label>
                   <Form.Control
                     type="text"
@@ -82,7 +123,11 @@ export default class Rahbarlar extends Component {
                 <Form.Group controlId="formFile" className="mb-3">
                   <Form.Label>Rasm kiriting </Form.Label>
                   <br />
-                  <Form.Control type="file" />
+                  <Form.Control
+                    type="file"
+                    accept="image/*"
+                    onChange={this.customRequest}
+                  />
                 </Form.Group>
               </Col>
               <Col>
@@ -90,7 +135,10 @@ export default class Rahbarlar extends Component {
                   <Form.Label>Email manzil kiriting</Form.Label>
                   <Form.Control type="Email" placeholder="Email kiriting" />
                 </Form.Group>{" "}
-                <Form.Group controlId="sana" style={{ marginBottom: "20px" }}>
+                <Form.Group
+                  controlId="lavozim"
+                  style={{ marginBottom: "20px" }}
+                >
                   <Form.Label>Ishlaydigan lavozimi</Form.Label>
                   <Form.Control
                     type="text"
@@ -123,6 +171,7 @@ export default class Rahbarlar extends Component {
               />
             </Form.Group>
             <Button
+              // type="submit"
               variant="primary"
               className={styles.inputFormBtn}
               onClick={() => this.saveTeacher()}
