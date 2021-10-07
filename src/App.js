@@ -16,7 +16,7 @@ import Bosqich3 from "./pages/3_bosqich";
 import Educators from "./pages/Educators";
 import Dasturlar from "./pages/Dasturlar";
 import Oshxona from "./pages/oshxona";
-// import Login from './pages/Login'
+import Login from "./pages/Login";
 import CabinetEducator from "./pages/cabinetEducator";
 import Yoga from "./css/Yoga";
 import Kids from "./pages/kids";
@@ -90,7 +90,9 @@ function App() {
         <Route exact path="/oshxona/uz">
           <Oshxona />
         </Route>
-        {/* <Route exact path="/login"><Login/></Route> */}
+        <Route exact path="/login">
+          <Login />
+        </Route>
         <Route exact path="/educator">
           <CabinetEducator />
         </Route>

@@ -171,6 +171,12 @@ export default class teachers1 extends Component {
                   />
                 </Form.Group>
               </Col>
+              <Col lg={6} md={6} sm={12}>
+                <Form.Group controlId="formFile" className="mb-3">
+                  <Form.Label>Rasm kiriting </Form.Label>
+                  <Form.Control type="file" />
+                </Form.Group>
+              </Col>
             </Row>
             <Form.Group controlId="onaname" style={{ marginBottom: "20px" }}>
               <Form.Label style={{ fontSize: "20px", paddingLeft: "10px" }}>
