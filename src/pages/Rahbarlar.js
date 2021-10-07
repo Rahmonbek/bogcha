@@ -3,26 +3,39 @@ import { Table, Button, Form, Row, Col } from "react-bootstrap";
 import styles from "../css/kids.module.css";
 import moment from "moment";
 import { DatePicker, Space } from "antd";
-import { deleteTeacher, getRahbariyat, pushTeacher } from "../host/Config";
+import {
+  deleteTeacher,
+  editTeachers,
+  getRahbariyat,
+  pushTeacher,
+} from "../host/Config";
 export default class Rahbarlar extends Component {
   state = {
     rahbarlar: [],
     kids1: {},
     image: null,
-    full_name: null,
-    lavozim: null,
-    mutaxassislik: null,
-    otm: null,
-    about: null,
-    phone: null,
-    email: null,
-    telegram: null,
+    imageF: null,
+    full_name: "",
+    lavozim: "",
+    mutaxassislik: "",
+    otm: "",
+    about: "",
+    phone: "",
+    email: "",
+    telegram: "",
+    date: null,
+    dateF: null,
+    editId: null,
   };
   deleteTeacher = (id) => {
     deleteTeacher(id)
-      .then((res) => {})
-      .catch((err) => {});
-    this.getRahbarlar();
+      .then((res) => {
+        this.getRahbarlar();
+        console.log("Ma'lumot o'chirildi!");
+      })
+      .catch((err) => {
+        console.log("Ma'lumot o'chirilmadi!");
+      });
   };
   getRahbarlar = () => {
     getRahbariyat()
@@ -36,43 +49,125 @@ export default class Rahbarlar extends Component {
   customRequest = (e) => {
     this.setState({ image: e.target.files[0] });
   };
+  datePick = (a, b) => {
+    this.setState({ date: b, dateF: a });
+  };
+  reset = () => {
+    this.setState({
+      image: null,
+      imageF: null,
+      full_name: "",
+      lavozim: "",
+      mutaxassislik: "",
+      otm: "",
+      about: "",
+      phone: "",
+      email: "",
+      telegram: "",
+      date: null,
+      dateF: null,
+      editId: null,
+    });
+  };
+  editTeacher = (id) => {
+    console.log(this.state.rahbarlar[id]);
+    this.setState({
+      editId: this.state.rahbarlar[id].id,
+      imageF: this.state.rahbarlar[id].image,
+      full_name: this.state.rahbarlar[id].full_name,
+      lavozim: this.state.rahbarlar[id].lavozim,
+      mutaxassislik: this.state.rahbarlar[id].mutaxassislik,
+      otm: this.state.rahbarlar[id].otm,
+      about: this.state.rahbarlar[id].about,
+      phone: this.state.rahbarlar[id].phone,
+      email: this.state.rahbarlar[id].email,
+      telegram: this.state.rahbarlar[id].telegram,
+      date: this.state.rahbarlar[id].date,
+      dateF: moment(this.state.rahbarlar[id].date),
+    });
+  };
   saveTeacher = (e) => {
     var info = {
-      full_name: document.getElementById("name").value,
-      otm: document.getElementById("otm").value,
-      mutaxassislik: document.getElementById("about").value,
-      telegram: document.getElementById("telegram").value,
-      email: document.getElementById("formBasicEmail").value,
-      lavozim: document.getElementById("lavozim").value,
-      phone: document.getElementById("PhoneNumber").value,
-      about: document.getElementById("exampleForm.ControlTextarea1").value,
+      full_name: this.state.full_name,
+      otm: this.state.otm,
+      mutaxassislik: this.state.mutaxassislik,
+      telegram: this.state.telegram,
+      email: this.state.email,
+      lavozim: this.state.lavozim,
+      phone: this.state.phone,
+      about: this.state.about,
+      date: this.state.date,
     };
     var bodyFormData = new FormData();
-    bodyFormData.append("full_name", info.full_name ?? "");
-    bodyFormData.append("otm", info.otm ?? "");
-    bodyFormData.append("mutaxassislik", info.mutaxassislik ?? "");
-    bodyFormData.append("telegram", info.telegram ?? "");
-    bodyFormData.append("email", info.email ?? "");
-    bodyFormData.append("lavozim", info.lavozim ?? "");
-    bodyFormData.append("phone", info.phone ?? "");
-    bodyFormData.append("about", info.about ?? "");
+    bodyFormData.append("full_name", this.state.full_name ?? "");
+    bodyFormData.append("otm", this.state.otm ?? "");
+    bodyFormData.append("mutaxassislik", this.state.mutaxassislik ?? "");
+    bodyFormData.append("telegram", this.state.telegram ?? "");
+    bodyFormData.append("email", this.state.email ?? "");
+    bodyFormData.append("lavozim", this.state.lavozim ?? "");
+    bodyFormData.append("phone", this.state.phone ?? "");
+    bodyFormData.append("about", this.state.about ?? "");
     bodyFormData.append("image", this.state.image ?? null);
-
-    pushTeacher(FormData)
-      .then((res) => {
-        console.log("ishladi");
-        this.getRahbarlar();
-      })
-      .catch((err) => {
-        console.log("Ishlamadi");
-      });
+    bodyFormData.append("date", this.state.date ?? null);
+    bodyFormData.append("kg", 4);
+    if (this.state.editId === null) {
+      pushTeacher(bodyFormData)
+        .then((res) => {
+          this.getRahbarlar();
+          this.reset();
+        })
+        .catch((err) => {
+          console.log("Ishlamadi");
+        });
+    } else {
+      if (this.state.image === null) {
+        editTeachers(info, this.state.editId)
+          .then((res) => {
+            this.getRahbarlar();
+            this.reset();
+          })
+          .catch((err) => console.log("Ma'lumot o'zgarmadi!"));
+      } else {
+        editTeachers(bodyFormData, this.state.editId)
+          .then((res) => {
+            this.getRahbarlar();
+            this.reset();
+          })
+          .catch((err) => console.log("Ma'lumot o'zgarmadi!"));
+      }
+    }
   };
   componentDidMount() {
     this.getRahbarlar();
   }
+
+  onFullName = (e) => {
+    this.setState({ full_name: e.target.value });
+  };
+  onOTM = (e) => {
+    this.setState({ otm: e.target.value });
+  };
+  onEmail = (e) => {
+    this.setState({ email: e.target.value });
+  };
+  onAbout = (e) => {
+    this.setState({ about: e.target.value });
+  };
+  onLavozim = (e) => {
+    this.setState({ lavozim: e.target.value });
+  };
+  onMutaxassislik = (e) => {
+    this.setState({ mutaxassislik: e.target.value });
+  };
+  onPhone = (e) => {
+    this.setState({ phone: e.target.value });
+  };
+  onTelegram = (e) => {
+    this.setState({ telegram: e.target.value });
+  };
   render() {
     const { RangePicker } = DatePicker;
-    const dateFormat = "YYYY/MM/DD";
+    const dateFormat = "YYYY-MM-DD";
     const customFormat = (value) =>
       `custom format: ${value.format(dateFormat)}`;
 
@@ -88,25 +183,28 @@ export default class Rahbarlar extends Component {
                 <Form.Group controlId="name" style={{ marginBottom: "20px" }}>
                   <Form.Label>Familiya,ism,sharifni kiriting</Form.Label>
                   <Form.Control
+                    value={this.state.full_name}
+                    onChange={this.onFullName}
                     type="text"
                     placeholder="F.I.Sh"
-                    defaultValue={this.state.kids1.name}
                   />
                 </Form.Group>
                 <Form.Group controlId="otm" style={{ marginBottom: "20px" }}>
                   <Form.Label>Tamomlagan oliy ta'lim muassasasi</Form.Label>
                   <Form.Control
+                    value={this.state.otm}
+                    onChange={this.onOTM}
                     type="text"
                     placeholder="O.T.M"
-                    defaultValue={this.state.kids1.name}
                   />
                 </Form.Group>
                 <Form.Group controlId="about" style={{ marginBottom: "20px" }}>
                   <Form.Label>Mutaxasisligini kiritng</Form.Label>
                   <Form.Control
+                    value={this.state.mutaxassislik}
+                    onChange={this.onMutaxassislik}
                     type="text"
                     placeholder="Mutaxasisligi"
-                    defaultValue={this.state.kids1.name}
                   />
                 </Form.Group>
                 <Form.Group
@@ -115,9 +213,10 @@ export default class Rahbarlar extends Component {
                 >
                   <Form.Label>Telegram manzil kiriting</Form.Label>
                   <Form.Control
+                    value={this.state.telegram}
+                    onChange={this.onTelegram}
                     type="text"
                     placeholder="Telegram"
-                    defaultValue={this.state.kids1.name}
                   />
                 </Form.Group>
                 <Form.Group controlId="formFile" className="mb-3">
@@ -133,7 +232,12 @@ export default class Rahbarlar extends Component {
               <Col>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email manzil kiriting</Form.Label>
-                  <Form.Control type="Email" placeholder="Email kiriting" />
+                  <Form.Control
+                    type="Email"
+                    placeholder="Email kiriting"
+                    value={this.state.email}
+                    onChange={this.onEmail}
+                  />
                 </Form.Group>{" "}
                 <Form.Group
                   controlId="lavozim"
@@ -143,18 +247,26 @@ export default class Rahbarlar extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Lavozimi"
-                    defaultValue={this.state.kids1.sana}
+                    value={this.state.lavozim}
+                    onChange={this.onLavozim}
                   />
                 </Form.Group>
                 <Form.Group controlId="PhoneNumber" className="mb-3">
                   <Form.Label>Telefon raqam kiriting </Form.Label>
-                  <Form.Control type="Number" placeholder="Telefon raqam" />
+                  <Form.Control
+                    type="tel"
+                    placeholder="Telefon raqam"
+                    value={this.state.phone}
+                    onChange={this.onPhone}
+                  />
                 </Form.Group>
                 <Space direction="vertical" size={12}>
                   <Form.Label>Tug'ilgan yil,oy,sanani kiriting</Form.Label>
                   <DatePicker
-                    defaultValue={moment("2015/01/01", dateFormat)}
+                    // defaultValue={moment("2000/01/01", dateFormat)}
                     format={dateFormat}
+                    onChange={this.datePick}
+                    value={this.state.dateF}
                   />
                 </Space>
               </Col>
@@ -165,6 +277,8 @@ export default class Rahbarlar extends Component {
             >
               <Form.Label>Qo'shimcha ma'lumot</Form.Label>
               <Form.Control
+                value={this.state.about}
+                onChange={this.onAbout}
                 as="textarea"
                 rows={3}
                 placeholder="Qo'shimcha ma'lumotlar..."

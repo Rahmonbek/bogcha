@@ -24,3 +24,12 @@ export const pushTeacher = (teacher) => {
   };
   return httpRequest(config);
 };
+
+export const editTeachers = (teacher, id) => {
+  var config = {
+    url: `${url}/rahbariyat/${id}/`,
+    method: "patch",
+    data: teacher,
+  };
+  return httpRequest(config);
+};
