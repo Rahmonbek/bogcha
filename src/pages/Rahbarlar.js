@@ -6,7 +6,6 @@ import { DatePicker, Space } from "antd";
 import { deleteTeacher, getRahbariyat } from "../host/Config";
 export default class Rahbarlar extends Component {
   state = {
-    // rahbar: [],
     rahbarlar: [],
     kids1: {},
   };
