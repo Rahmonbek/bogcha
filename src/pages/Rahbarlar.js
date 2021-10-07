@@ -3,70 +3,36 @@ import { Table, Button, Form, Row, Col } from "react-bootstrap";
 import styles from "../css/kids.module.css";
 import moment from "moment";
 import { DatePicker, Space } from "antd";
-import { getRahbariyat } from "../host/Config";
+import { deleteTeacher, getRahbariyat } from "../host/Config";
 export default class Rahbarlar extends Component {
   state = {
-    kids: [
-      {
-        name: "Toshmatov Toshmat Toshmat ogli",
-        sana: "2019-yil 7-oktabr",
-        otasi: {
-          ismi: "Toshmatov Toshmat",
-          tel: "+8947632364",
-        },
-        onasi: {
-          ismi: "Toshmatova Sabina",
-          tel: "+27364712672",
-        },
-      },
-      {
-        name: "Toshmatov Toshmat Toshmat ogli",
-        sana: "2019-yil 7-oktabr",
-        otasi: {
-          ismi: "Toshmatov Toshmat",
-          tel: "+8947632364",
-        },
-        onasi: {
-          ismi: "Toshmatova Sabina",
-          tel: "+27364712672",
-        },
-      },
-      {
-        name: "Toshmatov Toshmat Toshmat ogli",
-        sana: "2019-yil 7-oktabr",
-        otasi: {
-          ismi: "Toshmatov Toshmat",
-          tel: "+8947632364",
-        },
-        onasi: {
-          ismi: "Toshmatova Sabina",
-          tel: "+27364712672",
-        },
-      },
-    ],
+    // rahbar: [],
     rahbarlar: [],
-    kids1: {
-      name: "",
-      sana: "",
-      otasi: {
-        ismi: "",
-        tel: "",
-      },
-      onasi: {
-        ismi: "",
-        tel: "",
-      },
-    },
+    kids1: {},
+  };
+  deleteTeacher = (id) => {
+    deleteTeacher(id)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("ishlamadi");
+      });
   };
   getRahbarlar = () => {
     getRahbariyat()
-      .then((res) => console.log(res.data))
+      .then((res) =>
+        this.setState({
+          rahbarlar: res.data,
+        })
+      )
       .catch((err) => console.log(err));
   };
   componentDidMount() {
     this.getRahbarlar();
   }
   render() {
+    // const { rahbarlar } = this.state;
     const { RangePicker } = DatePicker;
     const dateFormat = "YYYY/MM/DD";
     const customFormat = (value) =>
@@ -186,28 +152,32 @@ export default class Rahbarlar extends Component {
             <tr style={{ borderBottom: "none" }}>
               <th>#</th>
               <th>F.I.O</th>
+              <th>Lavozimi</th>
               <th>Tug'ilgan sana</th>
-              <th>Otasi</th>
-              <th>Onasi</th>
+              <th>Mutaxasisligi</th>
+              <th>OTM</th>
+              <th>Haqida</th>
+              {/* <th>Tel. raqam</th>
+              <th>Pochta</th>
+              <th>Telegram</th> */}
               <th>O'zgartirish</th>
               <th>O'chirish</th>
             </tr>
           </thead>
           <tbody style={{ border: "none" }}>
-            {this.state.kids.map((item, key) => {
+            {this.state.rahbarlar.map((item, key) => {
               return (
                 <tr>
                   <td>{key + 1}</td>
-                  <td>{item.name}</td>
-                  <td>{item.sana}</td>
-                  <td>
-                    <p>{item.otasi.ismi}</p>
-                    <p>{item.otasi.tel}</p>
-                  </td>
-                  <td>
-                    <p>{item.onasi.ismi}</p>
-                    <p>{item.onasi.tel}</p>
-                  </td>
+                  <td>{item.full_name}</td>
+                  <td>{item.lavozim}</td>
+                  <td>{item.date}</td>
+                  <td>{item.otm}</td>
+                  <td>{item.mutaxassislik}</td>
+                  <td>{item.about}</td>
+                  {/* <td>{item.phone}</td>
+                  <td>{item.email}</td>
+                  <td>{item.telegram}</td> */}
                   <td>
                     <Button
                       style={{
@@ -229,7 +199,7 @@ export default class Rahbarlar extends Component {
                         fontSize: "17px",
                         border: "none",
                       }}
-                      onClick={() => this.deleteTeacher(key)}
+                      onClick={() => this.deleteTeacher(item.id)}
                     >
                       O'chirish
                     </Button>

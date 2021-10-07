@@ -7,3 +7,11 @@ export const getRahbariyat = () => {
   };
   return httpRequest(config);
 };
+
+export const deleteTeacher = (id) => {
+  var config = {
+    url: `${url}/rahbariyat/${id}/`,
+    method: "delete",
+  };
+  return httpRequest(config);
+};
