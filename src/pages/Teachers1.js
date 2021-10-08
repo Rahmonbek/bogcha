@@ -2,12 +2,52 @@ import React, { Component } from "react";
 import { Table, Button, Form, Row, Col } from "react-bootstrap";
 import { DatePicker, Space } from "antd";
 import moment from "moment";
-import { getXodimlar } from "../host/Config";
+import { deleteXodim, getXodimlar } from "../host/Config";
 import styles from "../css/kids.module.css";
 export default class teachers1 extends Component {
   state = {
     tarbiyachilar: [],
+    image: null,
+    imageF: null,
+    full_name: "",
+    lavozim: "",
+    mutaxassislik: "",
+    otm: "",
+    about: "",
+    phone: "",
+    email: "",
+    date: null,
+    dateF: null,
+    editId: null,
   };
+  reset = () => {
+    this.setState({
+      image: null,
+      imageF: null,
+      full_name: "",
+      lavozim: "",
+      mutaxassislik: "",
+      otm: "",
+      about: "",
+      phone: "",
+      email: "",
+      telegram: "",
+      date: null,
+      dateF: null,
+      editId: null,
+    });
+  };
+  deleteXodimlar = (id) => {
+    deleteXodim(id)
+      .then((res) => {
+        this.getTarbiyachilar();
+        console.log("Ma'lumot o'chirildi ");
+      })
+      .catch((err) => {
+        console.log("Ma'lumot o'chirilmadi");
+      });
+  };
+
   getTarbiyachilar = () => {
     getXodimlar()
       .then((res) => {
@@ -23,7 +63,7 @@ export default class teachers1 extends Component {
   }
   render() {
     const { RangePicker } = DatePicker;
-    const dateFormat = "YYYY/MM/DD";
+    const dateFormat = "YYYY-MM-DD";
     const customFormat = (value) =>
       `custom format: ${value.format(dateFormat)}`;
     return (
@@ -40,6 +80,7 @@ export default class teachers1 extends Component {
                   </Form.Label>
                   <Form.Control
                     type="text"
+                    value={this.state.full_name}
                     placeholder="F.I.Sh"
                     // defaultValue={this.state.kid.name}
                   />
@@ -53,6 +94,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Lavozim"
+                    value={this.state.lavozim}
                     // defaultValue={this.state.kids1.onasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
@@ -80,6 +122,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Mutaxasislik"
+                    value={this.state.mutaxassislik}
                     // defaultValue={this.state.kids1.otasi.ismi}
                   />
                 </Form.Group>
@@ -90,8 +133,9 @@ export default class teachers1 extends Component {
                     Telefon raqam
                   </Form.Label>
                   <Form.Control
-                    type="text"
+                    type="tel"
                     placeholder="Telefon raqam"
+                    value={this.state.phone}
                     // defaultValue={this.state.kids1.otasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
@@ -105,6 +149,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="email"
                     placeholder="gmail.com"
+                    value={this.state.email}
                     // defaultValue={this.state.kids1.otasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
@@ -118,6 +163,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Telegram"
+                    value={this.state.telegram}
                     // defaultValue={this.state.kids1.otasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
@@ -225,7 +271,7 @@ export default class teachers1 extends Component {
                         fontSize: "17px",
                         border: "none",
                       }}
-                      onClick={() => this.deleteTeacher(key)}
+                      onClick={() => this.deleteXodimlar(item.id)}
                     >
                       O'chirish
                     </Button>

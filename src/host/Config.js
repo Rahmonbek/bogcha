@@ -16,7 +16,6 @@ export const deleteTeacher = (id) => {
   return httpRequest(config);
 };
 
-<<<<<<< Updated upstream
 export const pushTeacher = (teacher) => {
   var config = {
     url: `${url}/rahbariyat/`,
@@ -31,12 +30,22 @@ export const editTeachers = (teacher, id) => {
     url: `${url}/rahbariyat/${id}/`,
     method: "patch",
     data: teacher,
-=======
+  };
+  return httpRequest(config);
+};
+
 export const getXodimlar = () => {
   var config = {
     url: `${url}/xodim/`,
     method: "get",
->>>>>>> Stashed changes
+  };
+  return httpRequest(config);
+};
+
+export const deleteXodim = (id) => {
+  var config = {
+    url: `${url}/xodim/${id}/`,
+    method: "delete",
   };
   return httpRequest(config);
 };
