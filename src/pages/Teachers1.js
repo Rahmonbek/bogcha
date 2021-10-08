@@ -2,60 +2,25 @@ import React, { Component } from "react";
 import { Table, Button, Form, Row, Col } from "react-bootstrap";
 import { DatePicker, Space } from "antd";
 import moment from "moment";
+import { getXodimlar } from "../host/Config";
 import styles from "../css/kids.module.css";
 export default class teachers1 extends Component {
   state = {
-    kids: [
-      {
-        name: "Toshmatov Toshmat Toshmat ogli",
-        sana: "2019-yil 7-oktabr",
-        otasi: {
-          ismi: "Toshmatov Toshmat",
-          tel: "+8947632364",
-        },
-        onasi: {
-          ismi: "Toshmatova Sabina",
-          tel: "+27364712672",
-        },
-      },
-      {
-        name: "Toshmatov Toshmat Toshmat ogli",
-        sana: "2019-yil 7-oktabr",
-        otasi: {
-          ismi: "Toshmatov Toshmat",
-          tel: "+8947632364",
-        },
-        onasi: {
-          ismi: "Toshmatova Sabina",
-          tel: "+27364712672",
-        },
-      },
-      {
-        name: "Toshmatov Toshmat Toshmat ogli",
-        sana: "2019-yil 7-oktabr",
-        otasi: {
-          ismi: "Toshmatov Toshmat",
-          tel: "+8947632364",
-        },
-        onasi: {
-          ismi: "Toshmatova Sabina",
-          tel: "+27364712672",
-        },
-      },
-    ],
-    kids1: {
-      name: "",
-      sana: "",
-      otasi: {
-        ismi: "",
-        tel: "",
-      },
-      onasi: {
-        ismi: "",
-        tel: "",
-      },
-    },
+    tarbiyachilar: [],
   };
+  getTarbiyachilar = () => {
+    getXodimlar()
+      .then((res) => {
+        this.setState({ tarbiyachilar: res.data });
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  componentDidMount() {
+    this.getTarbiyachilar();
+  }
   render() {
     const { RangePicker } = DatePicker;
     const dateFormat = "YYYY/MM/DD";
@@ -76,7 +41,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="F.I.Sh"
-                    defaultValue={this.state.kids1.name}
+                    // defaultValue={this.state.kid.name}
                   />
                 </Form.Group>
               </Col>
@@ -88,7 +53,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Lavozim"
-                    defaultValue={this.state.kids1.onasi.tel}
+                    // defaultValue={this.state.kids1.onasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
                 </Form.Group>
@@ -99,7 +64,7 @@ export default class teachers1 extends Component {
                     Tug'ilgan yil,oy,sanani kiriting
                   </Form.Label>
                   <DatePicker
-                    defaultValue={moment("2015/01/01", dateFormat)}
+                    // defaultValue={moment("2015/01/01", dateFormat)}
                     format={dateFormat}
                   />
                 </Space>
@@ -115,7 +80,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Mutaxasislik"
-                    defaultValue={this.state.kids1.otasi.ismi}
+                    // defaultValue={this.state.kids1.otasi.ismi}
                   />
                 </Form.Group>
               </Col>
@@ -127,7 +92,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Telefon raqam"
-                    defaultValue={this.state.kids1.otasi.tel}
+                    // defaultValue={this.state.kids1.otasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
                 </Form.Group>
@@ -140,7 +105,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="email"
                     placeholder="gmail.com"
-                    defaultValue={this.state.kids1.otasi.tel}
+                    // defaultValue={this.state.kids1.otasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
                 </Form.Group>
@@ -153,7 +118,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Telegram"
-                    defaultValue={this.state.kids1.otasi.tel}
+                    // defaultValue={this.state.kids1.otasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
                 </Form.Group>
@@ -166,7 +131,7 @@ export default class teachers1 extends Component {
                   <Form.Control
                     type="text"
                     placeholder="Oliygohi"
-                    defaultValue={this.state.kids1.otasi.tel}
+                    // defaultValue={this.state.kids1.otasi.tel}
                     onChange={(e) => this.handleImage(e)}
                   />
                 </Form.Group>
@@ -186,7 +151,7 @@ export default class teachers1 extends Component {
                 as="textarea"
                 rows={4}
                 placeholder="Qo'shimcha ma'lumot"
-                defaultValue={this.state.kids1.onasi.ismi}
+                // defaultValue={this.state.kids1.onasi.ismi}
               />
             </Form.Group>
 
@@ -220,30 +185,25 @@ export default class teachers1 extends Component {
         >
           <thead style={{ borderBottom: "none" }}>
             <tr style={{ borderBottom: "none" }}>
-              <th>#</th>
+              {/* <th>#</th> */}
               <th>F.I.O</th>
               <th>Tug'ilgan sana</th>
-              <th>Otasi</th>
-              <th>Onasi</th>
+              <th>Lavozim</th>
+              <th>Tug'ilgan sana</th>
+              <th>Mutaxasisligi</th>
               <th>O'zgartirish</th>
               <th>O'chirish</th>
             </tr>
           </thead>
           <tbody style={{ border: "none" }}>
-            {this.state.kids.map((item, key) => {
+            {this.state.tarbiyachilar.map((item, key) => {
               return (
                 <tr>
                   <td>{key + 1}</td>
-                  <td>{item.name}</td>
-                  <td>{item.sana}</td>
-                  <td>
-                    <p>{item.otasi.ismi}</p>
-                    <p>{item.otasi.tel}</p>
-                  </td>
-                  <td>
-                    <p>{item.onasi.ismi}</p>
-                    <p>{item.onasi.tel}</p>
-                  </td>
+                  <td>{item.full_name}</td>
+                  <td>{item.lavozim}</td>
+                  <td>{item.date}</td>
+                  <td>{item.mutaxassislik}</td>
                   <td>
                     <Button
                       style={{
