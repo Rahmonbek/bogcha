@@ -38,6 +38,8 @@ import her4 from "../img/h4.jpg";
 import her5 from "../img/h5.png";
 import her6 from "../img/h6.png";
 import YouTube from "@u-wave/react-youtube";
+import { getKg } from "../host/Config";
+import Global from "../host/Global";
 
 export default class Dashboard extends Component {
   state = {
@@ -49,6 +51,13 @@ export default class Dashboard extends Component {
         loader: false,
       });
     }, 2000);
+    if (Global.kg === null) {
+      getKg()
+        .then((res) => {
+          Global.kg = res.data;
+        })
+        .catch((err) => console.log(err));
+    }
   }
 
   render() {
