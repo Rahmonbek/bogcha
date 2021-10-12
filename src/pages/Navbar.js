@@ -23,11 +23,14 @@ import {
   SettingOutlined,
 } from "@ant-design/icons";
 import { AiOutlineClose } from "react-icons/ai";
+import Global from "../host/Global";
+import { getKg } from "../host/Config";
 export default class Navbar extends Component {
   state = {
     nav: false,
     open: false,
     close: false,
+    tel: null,
   };
   change = () => {
     if (window.scrollY >= 200) {
@@ -50,8 +53,22 @@ export default class Navbar extends Component {
       open: false,
     });
   };
+
   componentDidMount() {
     window.addEventListener("scroll", this.change);
+    if (Global.kg === null) {
+      getKg()
+        .then((res) => {
+          Global.kg = res.data;
+          var tel, telefon;
+          Global.kg.phone = tel;
+          telefon = "tel:" + tel;
+          this.setState({
+            tel: telefon,
+          });
+        })
+        .catch((err) => console.log(err));
+    }
   }
   handleClick = (e) => {
     console.log("click ", e);
@@ -131,28 +148,28 @@ export default class Navbar extends Component {
                   <Link to="/tadbirlar/uz">Tadbirlar</Link>
                 </span>
                 <span style={{ marginLeft: "40px" }}>
-                  <a href="tel:+998335093874">
+                  <a href={Global.kg.phone}>
                     <FaPhoneAlt
                       style={{ color: "#FF8080", fontSize: "18px" }}
                     />
                   </a>
                 </span>
                 <span>
-                  <a href="http://t.me/Karshiyeva_N">
+                  <a href={Global.kg.telegram}>
                     <FaTelegramPlane
                       style={{ color: "#FF8080", fontSize: "23px" }}
                     />
                   </a>
                 </span>
                 <span>
-                  <a href="http://t.me/Karshiyeva_N">
+                  <a href={Global.kg.instagram}>
                     <FaInstagram
                       style={{ color: "#FF8080", fontSize: "23px" }}
                     />
                   </a>
                 </span>
                 <span>
-                  <a href="http://t.me/Karshiyeva_N">
+                  <a href={Global.kg.facebook}>
                     <FaFacebook
                       style={{ color: "#FF8080", fontSize: "23px" }}
                     />
