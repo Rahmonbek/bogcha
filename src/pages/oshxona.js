@@ -118,58 +118,94 @@ export default class Oshxona extends Component {
                     Maktabgacha yoshdagi bolalar uchun namunaviy ovqatlanish: 3
                     yoshdan 5 yoshgacha
                   </h2>
-                  <h2 className={styles.heading}>Namuna menyusi 1</h2>
+                  {Global.kg.oshxona.map((food) => {
+                    if (food.id === 3) {
+                      return <h2 className={styles.heading}>{food.name}</h2>;
+                    }
+                  })}
+
                   <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
                   <div className={styles.cardchalar}>
                     <div>Nonushta</div>
-                    <div style={{ marginLeft: "200px" }}>
-                      Mini qo'ziqorinli omletlar yoki nonushta stakanlari
-                      Qulupnay va banan bo'laklari Sut
-                    </div>
+
+                    {Global.kg.menu.map((food) => {
+                      if (food.oshxona === 3 && food.name === "nonushta 1") {
+                        return (
+                          <div style={{ marginLeft: "200px" }}>
+                            {food.tarkib}
+                          </div>
+                        );
+                      }
+                    })}
                   </div>
                   <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
                   <div className={styles.cardchalar}>
                     <div>Ertalabki tamaddi</div>
-                    <div style={{ marginLeft: "150px" }}>
-                      Quark va reza mevalari, Suv
-                    </div>
+                    {Global.kg.menu.map((food) => {
+                      if (food.oshxona === 3 && food.name === "nonushta 2") {
+                        return (
+                          <div style={{ marginLeft: "150px" }}>
+                            {food.tarkib}
+                          </div>
+                        );
+                      }
+                    })}
                   </div>
                   <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
                   <div className={styles.cardchalar}>
                     <div>Tushlik</div>
-                    <div style={{ marginLeft: "210px" }}>
-                      Parsnip va sabzi sho'rvasining qaymog'i 100% to'liq
-                      bug'doy tuzsiz kraker yoki pita non Cho'mish uchun salat
-                      kiyimi bilan xom sabzavotlar (sabzi, selderey
-                      tayoqchalari, qizil qalampir bo'laklari) Sut
-                    </div>
+                    {Global.kg.menu.map((food) => {
+                      if (food.oshxona === 3 && food.name === "tushlik") {
+                        return (
+                          <div style={{ marginLeft: "210px" }}>
+                            {food.tarkib}
+                          </div>
+                        );
+                      }
+                    })}
                   </div>
                   <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
-                  <div className={styles.cardchalar}>
+                  {/* <div className={styles.cardchalar}>
                     <div>Peshindan keyin tamaddi</div>
                     <div style={{ marginLeft: "100px" }}>
                       Yong'oq moyi yoki keddar pishloqli olma bo'laklari Suv
                     </div>
                   </div>
-                  <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
+                  <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} /> */}
 
-                  <h2 className={styles.heading}>Namuna menyusi 2</h2>
+                  {Global.kg.oshxona.map((food) => {
+                    if (food.id === 4) {
+                      return <h2 className={styles.heading}>{food.name}</h2>;
+                    }
+                  })}
                   <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
                   <div className={styles.cardchalar}>
                     <div>Nonushta</div>
-                    <div style={{ marginLeft: "200px" }}>
-                      Olma sousi bilan jo'xori uni krep Sut
-                    </div>
+                    {Global.kg.menu.map((food) => {
+                      if (food.oshxona === 4 && food.name === "nonushta") {
+                        return (
+                          <div style={{ marginLeft: "200px" }}>
+                            {food.tarkib}
+                          </div>
+                        );
+                      }
+                    })}
                   </div>
                   <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
                   <div className={styles.cardchalar}>
-                    <div>Ertalabki tamaddi</div>
-                    <div style={{ marginLeft: "150px" }}>
-                      Yogurt va mevali smuzi
-                    </div>
+                    <div>Tushlik</div>
+                    {Global.kg.menu.map((food) => {
+                      if (food.oshxona === 4 && food.name === "tushlik") {
+                        return (
+                          <div style={{ marginLeft: "215px" }}>
+                            {food.tarkib}
+                          </div>
+                        );
+                      }
+                    })}
                   </div>
                   <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
-                  <div className={styles.cardchalar}>
+                  {/* <div className={styles.cardchalar}>
                     <div>Tushlik</div>
                     <div style={{ marginLeft: "210px" }}>
                       Ko'p donli non yoki bug'doy krakerida orkinos pishirilgan
@@ -185,7 +221,7 @@ export default class Oshxona extends Component {
                       qalampir bo'laklari) pishirilgan tortilla chiplari yoki
                       bug'doy pita noni Suv
                     </div>
-                  </div>
+                  </div> */}
                 </Col>
               </Row>
             </Container>
