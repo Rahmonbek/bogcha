@@ -148,7 +148,7 @@ export default class Navbar extends Component {
                   <Link to="/tadbirlar/uz">Tadbirlar</Link>
                 </span>
                 <span style={{ marginLeft: "40px" }}>
-                  <a href={Global.kg.phone}>
+                  <a href={`tel: ${Global.kg.phone}`}>
                     <FaPhoneAlt
                       style={{ color: "#FF8080", fontSize: "18px" }}
                     />
