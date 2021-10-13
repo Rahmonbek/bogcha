@@ -30,7 +30,6 @@ export default class Navbar extends Component {
     nav: false,
     open: false,
     close: false,
-    tel: null,
   };
   change = () => {
     if (window.scrollY >= 200) {
@@ -60,12 +59,6 @@ export default class Navbar extends Component {
       getKg()
         .then((res) => {
           Global.kg = res.data;
-          var tel, telefon;
-          Global.kg.phone = tel;
-          telefon = "tel:" + tel;
-          this.setState({
-            tel: telefon,
-          });
         })
         .catch((err) => console.log(err));
     }
