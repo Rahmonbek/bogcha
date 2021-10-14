@@ -141,28 +141,28 @@ export default class Navbar extends Component {
                   <Link to="/tadbirlar/uz">Tadbirlar</Link>
                 </span>
                 <span style={{ marginLeft: "40px" }}>
-                  <a href={`tel: ${Global.kg.phone}`}>
+                  <a href={`tel: ${Global.kg !== null ? Global.kg.phone : ""}`}>
                     <FaPhoneAlt
                       style={{ color: "#FF8080", fontSize: "18px" }}
                     />
                   </a>
                 </span>
                 <span>
-                  <a href={Global.kg.telegram}>
+                  <a href={Global.kg !== null ? Global.kg.telegram : ""}>
                     <FaTelegramPlane
                       style={{ color: "#FF8080", fontSize: "23px" }}
                     />
                   </a>
                 </span>
                 <span>
-                  <a href={Global.kg.instagram}>
+                  <a href={Global.kg !== null ? Global.kg.instagram : ""}>
                     <FaInstagram
                       style={{ color: "#FF8080", fontSize: "23px" }}
                     />
                   </a>
                 </span>
                 <span>
-                  <a href={Global.kg.facebook}>
+                  <a href={Global.kg !== null ? Global.kg.facebook : ""}>
                     <FaFacebook
                       style={{ color: "#FF8080", fontSize: "23px" }}
                     />

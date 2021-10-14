@@ -26,6 +26,7 @@ import {
   MailOutlined,
 } from "@ant-design/icons";
 import Rahbariyat from "./Rahbariyat";
+import Cabinet from "./Cabinet";
 export default class CabinetEducator extends Component {
   state = {
     collapsed: false,
@@ -180,6 +181,9 @@ export default class CabinetEducator extends Component {
                   </Menu>
                 </div>
                 <Switch>
+                  <Route exact path="/educator">
+                    <Cabinet />
+                  </Route>
                   <Route exact path="/educator/rahbarlar">
                     <Rahbarlar />
                   </Route>
