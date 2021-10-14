@@ -95,7 +95,7 @@ export default class Dashboard extends Component {
             <div className={styles.header}>
               <Navbar />
               <div className={styles.youtube}>
-                <YouTube
+                {/* <YouTube
                   video="Vjkedan2rxA"
                   autoplay
                   muted
@@ -110,11 +110,11 @@ export default class Dashboard extends Component {
                   width="100%"
                   height="100%"
                   style={{ zIndex: "-7" }}
-                />
+                /> */}
+                <video autoPlay="autoplay" loop="loop" muted>
+                  <source src={kinder} type="video/mp4" />
+                </video>
               </div>
-              {/* <video autoPlay="autoplay" loop="loop" muted>
-                <source src={kinder} type="video/mp4" />
-              </video> */}
               <div className={styles.btnHeader}>
                 <img alt="" src={rasm2} />
                 <button>Hoziroq qo'ng'iroq qiling!</button>
@@ -126,7 +126,8 @@ export default class Dashboard extends Component {
                   <Col
                     lg={2}
                     md={4}
-                    sm={4}
+                    sm={6}
+                    xs={6}
                     style={{
                       background: "rgb(247,107,106)",
                       background:
@@ -144,7 +145,8 @@ export default class Dashboard extends Component {
                   <Col
                     lg={2}
                     md={4}
-                    sm={4}
+                    sm={6}
+                    xs={6}
                     style={{ backgroundColor: "#F76B6A" }}
                     className={styles.card}
                   >
@@ -158,7 +160,8 @@ export default class Dashboard extends Component {
                   <Col
                     lg={2}
                     md={4}
-                    sm={4}
+                    sm={6}
+                    xs={6}
                     style={{
                       background: "rgb(247,107,106)",
                       background:
@@ -176,7 +179,8 @@ export default class Dashboard extends Component {
                   <Col
                     lg={2}
                     md={4}
-                    sm={4}
+                    sm={6}
+                    xs={6}
                     style={{ backgroundColor: "#F76B6A" }}
                     className={styles.card}
                   >
@@ -190,7 +194,8 @@ export default class Dashboard extends Component {
                   <Col
                     lg={2}
                     md={4}
-                    sm={4}
+                    sm={6}
+                    xs={6}
                     style={{
                       background: "rgb(247,107,106)",
                       background:
@@ -208,7 +213,8 @@ export default class Dashboard extends Component {
                   <Col
                     lg={2}
                     md={4}
-                    sm={4}
+                    sm={6}
+                    xs={6}
                     style={{ backgroundColor: "#F76B6A" }}
                     className={styles.card}
                   >
