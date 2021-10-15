@@ -28,7 +28,18 @@ export default class Cabinet extends Component {
     getKg()
       .then((res) => {
         console.log(res.data);
-        this.setState({ KG: res.data });
+        this.setState({
+          KG: res.data,
+          email: res.data.email,
+          name: res.data.name,
+          instagram: res.data.instagram,
+          telegram: res.data.telegram,
+          facebook: res.data.facebook,
+          viloyat: res.data.viloyat,
+          tuman: res.data.tuman,
+          address: res.data.address,
+          number: res.data.number,
+        });
       })
       .catch((err) => console.log(err));
   };
