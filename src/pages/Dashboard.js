@@ -96,21 +96,25 @@ export default class Dashboard extends Component {
               <Navbar />
               <div className={styles.youtube}>
                 {/* <YouTube
-                  video="Vjkedan2rxA"
-                  autoplay
-                  muted
+                  video="zszbr8MptTA"
+                  autoplay={true}
+                  muted={true}
                   controls={false}
                   showRelatedVideos={false}
                   showInfo={false}
+                  allowFullscreen={true}
                   annotations={false}
                   paused={false}
                   showCaptions={false}
                   modestBranding={false}
                   loop={0}
+                  suggestedQuality="hd1080"
+                 
                   width="100%"
                   height="100%"
                   style={{ zIndex: "-7" }}
                 /> */}
+                {/* <iframe width="100%" height="100%"style={{ zIndex: "-7" }} src="https://www.youtube.com/embed/Vjkedan2rxA?controls=0&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
                 <video autoPlay="autoplay" loop="loop" muted>
                   <source src={kinder} type="video/mp4" />
                 </video>
