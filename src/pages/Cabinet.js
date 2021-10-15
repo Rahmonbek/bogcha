@@ -39,6 +39,13 @@ export default class Cabinet extends Component {
           tuman: res.data.tuman,
           address: res.data.address,
           number: res.data.number,
+          phone: res.data.phone,
+          logo: res.data.logo,
+          dastur1: res.data.program1,
+          dastur2: res.data.program2,
+          dastur3: res.data.program3,
+          ourHistory: res.data.our_history,
+          whyUs: res.data.why_us,
         });
       })
       .catch((err) => console.log(err));
