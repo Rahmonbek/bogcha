@@ -11,6 +11,8 @@ import story2 from "../img/ourstorybanner.jpg";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Global from "../host/Global";
+import { getKg } from "../host/Config";
 
 export default class Our_story extends Component {
   state = {
@@ -22,6 +24,13 @@ export default class Our_story extends Component {
         loader: false,
       });
     }, 2000);
+    if (Global.kg === null) {
+      getKg()
+        .then((res) => {
+          Global.kg = res.data;
+        })
+        .catch((err) => console.log(err));
+    }
   }
   render() {
     const responsive = {
@@ -83,15 +92,7 @@ export default class Our_story extends Component {
                     <h1>Bizning tarix</h1>
                   </div>
                   <div className={styles.text}>
-                    <p>
-                      Bu g'oya sifatida boshlandi ... yaxshi. Ko'p fikrlar bor
-                      edi, lekin bilasizmi ... bitta narsa ajralib chiqdi,
-                      chunki u umumiy belgiga ega edi va bu SEVGI edi. Axir
-                      sizga faqat SEVGI kerak. Agar sizning g'oyalaringiz va
-                      niyatlaringiz ichkaridan haydaladigan bo'lsa, siz
-                      uzoqlashasiz, qanchalik uzoqqa borasiz, hech kim bilmaydi
-                      ... nega bu muhim? Faqat siz qancha masofani bilasiz…
-                    </p>
+                    <p>{Global.kg.our_history}</p>
                   </div>
                   <br />
                 </div>
