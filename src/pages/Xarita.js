@@ -76,7 +76,7 @@ export const Xarita=()=> {
               height="95vh"
               state={{
                 center: data[0].params,
-                zoom,
+                zoom:6,
               }}
             >
               <Clusterer
