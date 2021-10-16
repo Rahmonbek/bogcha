@@ -103,12 +103,12 @@ export default class Navbar extends Component {
                   <p>
                     <Link to="/oshxona/uz">Oshxona</Link>
                   </p>
-                  <p>
+                  {/* <p>
                     <Link to="/galereya/uz">Galereya</Link>
-                  </p>
-                  <p>
+                  </p> */}
+                  {/* <p>
                     <Link to="/manzil/uz">Manzil</Link>
-                  </p>
+                  </p> */}
                 </div>
                 <span style={{ fontSize: "25px" }}>|</span>
                 <span className={styles.sub2}>
