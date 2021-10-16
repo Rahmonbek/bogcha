@@ -31,6 +31,19 @@ export default class CabinetEducator extends Component {
   state = {
     collapsed: false,
     loader: true,
+    stl: null,
+  };
+  style = () => {
+    var stl = this.state.stl;
+    if (stl == null) {
+      document.querySelector("dash").style.color = "#FF8080";
+      document.querySelector("dash").style.backgroundColor = "white";
+      this.setState({
+        stl: "1",
+      });
+    } else {
+      document.querySelector("dash").style.color = "white";
+    }
   };
   componentDidMount() {
     setInterval(() => {
@@ -82,7 +95,7 @@ export default class CabinetEducator extends Component {
                     )}
                   </Button>
                   <Menu
-                    style={{ backgroundColor: "black" }}
+                    // style={{ backgroundColor: "black" }}
                     defaultSelectedKeys={["1"]}
                     mode="inline"
                     className="Linkdashboard"
@@ -92,13 +105,14 @@ export default class CabinetEducator extends Component {
                     <Menu.Item key="1" icon={<PieChartOutlined />}>
                       <Link
                         to="/educator"
+                        className="akt"
                         style={{
-                          color: "white",
+                          color: "#FF8080",
                           fontWeight: "600",
                           fontSize: "16px",
                         }}
                       >
-                        Dashboard
+                        <span className="dash"> Dashboard</span>
                       </Link>
                     </Menu.Item>
                     <SubMenu
@@ -118,7 +132,7 @@ export default class CabinetEducator extends Component {
                         <Link
                           to="/educator/rahbarlar"
                           style={{
-                            color: "white",
+                            color: "#FF8080",
                             fontWeight: "600",
                             fontSize: "16px",
                           }}
@@ -133,7 +147,7 @@ export default class CabinetEducator extends Component {
                         <Link
                           to="/educator/tarbiyachilar"
                           style={{
-                            color: "white",
+                            color: "#FF8080",
                             fontWeight: "600",
                             fontSize: "16px",
                           }}
