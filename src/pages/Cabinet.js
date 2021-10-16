@@ -68,6 +68,14 @@ export default class Cabinet extends Component {
           dastur3: res.data.program3,
           ourHistory: res.data.our_history,
           whyUs: res.data.why_us,
+          posttext1: res.data.post_text1,
+          postimage1: res.data.post_image1,
+          posttext2: res.data.post_text2,
+          postimage2: res.data.post_image2,
+          posttext3: res.data.post_text3,
+          postimage3: res.data.post_image3,
+          posttext4: res.data.post_text4,
+          postimage4: res.data.post_image4,
         });
       })
       .catch((err) => console.log(err));
@@ -93,14 +101,14 @@ export default class Cabinet extends Component {
       our_history: this.state.ourHistory,
       why_us: this.state.whyUs,
       params: this.state.params,
-      posttext1: this.state.post_text1,
-      postimage1: this.state.post_image1,
-      posttext2: this.state.post_text2,
-      postimage2: this.state.post_image2,
-      posttext3: this.state.post_text3,
-      postimage3: this.state.post_image3,
-      posttext4: this.state.post_text4,
-      postimage4: this.state.post_image4,
+      post_text1: this.state.posttext1,
+      // post_image1: this.state.postimage1,
+      post_text2: this.state.posttext2,
+      // post_image2: this.state.postimage2,
+      post_text3: this.state.posttext3,
+      // post_image3: this.state.postimage3,
+      post_text4: this.state.posttext4,
+      // post_image4: this.state.postimage4,
     };
     editKg(data)
       .then((res) => {
