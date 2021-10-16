@@ -35,6 +35,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Qabul from "./pages/Qabul";
 import Galereya from "./pages/Galereya";
 import Rahbarlar from "./pages/Rahbarlar";
+import { Xarita } from "./pages/Xarita";
 function App() {
   return (
     <BrowserRouter>
@@ -131,6 +132,9 @@ function App() {
         </Route>
         <Route exact path="/rahbariyat/uz">
           <Rahbariyat />
+        </Route>
+        <Route exact path="/xarita">
+          <Xarita />
         </Route>
       </Switch>
     </BrowserRouter>

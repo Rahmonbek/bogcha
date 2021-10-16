@@ -86,6 +86,7 @@ params:null,
       program3: this.state.dastur3,
       our_history: this.state.ourHistory,
       why_us: this.state.whyUs,
+    params:this.state.params
     };
     console.log(data);
     editKg(data)
@@ -151,7 +152,6 @@ params:null,
     });
   };
   render() {
-    console.log(this.state.params)
     return (
       <div style={{ padding: "3%", width: "100%" }}>
         <div className={styles.formAdmin}>

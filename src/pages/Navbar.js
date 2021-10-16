@@ -140,6 +140,10 @@ export default class Navbar extends Component {
                 <span>
                   <Link to="/tadbirlar/uz">Tadbirlar</Link>
                 </span>
+                <span style={{ fontSize: "25px" }}>|</span>
+                <span>
+                  <Link to="/xarita">Xarita</Link>
+                </span>
                 <span style={{ marginLeft: "40px" }}>
                   <a href={`tel: ${Global.kg !== null ? Global.kg.phone : ""}`}>
                     <FaPhoneAlt
@@ -291,6 +295,14 @@ export default class Navbar extends Component {
                     >
                       <Link style={{ color: "white" }} to="/tadbirlar/uz">
                         Tadbirlar
+                      </Link>
+                    </Menu.Item>
+                    <Menu.Item
+                      key="13"
+                      style={{ color: "white", backgroundColor: "#F76B6A" }}
+                    >
+                      <Link style={{ color: "white" }} to="/xarita">
+                        Xarita
                       </Link>
                     </Menu.Item>
                     {/* <Menu.Item
