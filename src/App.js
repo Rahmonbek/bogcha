@@ -6,7 +6,7 @@ import Wonder from "./pages/Wonder";
 import Leadership from "./pages/Leadership";
 import Changing from "./pages/Changing";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Location from "./pages/Location";
+// import Location from "./pages/Location";
 import Why_us from "./pages/Why_us";
 import Our_story from "./pages/Our_story";
 import About_us from "./pages/About_us";
@@ -33,7 +33,7 @@ import Rahbariyat from "./pages/Rahbariyat";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Qabul from "./pages/Qabul";
-import Galereya from "./pages/Galereya";
+// import Galereya from "./pages/Galereya";
 import Rahbarlar from "./pages/Rahbarlar";
 import { Xarita } from "./pages/Xarita";
 function App() {
@@ -58,9 +58,9 @@ function App() {
         <Route exact path="/changing/uz">
           <Changing />
         </Route>
-        <Route exact path="/manzil/uz">
+        {/* <Route exact path="/manzil/uz">
           <Location />
-        </Route>
+        </Route> */}
         <Route exact path="/nimauchunbiz/uz">
           <Why_us />
         </Route>
@@ -70,9 +70,9 @@ function App() {
         <Route exact path="/bizningtarix/uz">
           <Our_story />
         </Route>
-        <Route exact path="/galereya/uz">
+        {/* <Route exact path="/galereya/uz">
           <Galereya />
-        </Route>
+        </Route> */}
         <Route exact path="/tarbiyachilar/uz">
           <Educators />
         </Route>
