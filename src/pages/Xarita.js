@@ -133,10 +133,10 @@ export const Xarita=()=> {
                 </Clusterer>
               )}
               
-              <GeolocationControl options={{ float: "left" }} />
-              <TypeSelector options={{ float: "right" }} />
-              <TrafficControl options={{ float: "right" }} />
-              <RouteButton options={{ float: "right" }} />
+              {/* <GeolocationControl options={{ float: "left" }} /> */}
+              {/* <TypeSelector options={{ float: "right" }} /> */}
+              {/* <TrafficControl options={{ float: "right" }} /> */}
+              {/* <RouteButton options={{ float: "right" }} /> */}
               <ZoomControl options={{ float: "left" }} />
             </Map>
           </YMaps>
