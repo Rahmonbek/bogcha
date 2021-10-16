@@ -67,7 +67,7 @@ export const editXodim = (dataS, id) => {
 
 export const getKg = () => {
   var config = {
-    url: `${url}/kg-info/${idBogcha}/`,
+    url: `${url}/kg/${idBogcha}/`,
     method: "get",
   };
   return httpRequest(config);

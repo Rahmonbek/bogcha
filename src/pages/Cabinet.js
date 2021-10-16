@@ -3,6 +3,19 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import styles from "../css/kids.module.css";
 import { Select } from "antd";
 import { editKg, getKg } from "../host/Config";
+import {
+  YMaps,
+  Map,
+  Clusterer,
+  Placemark,
+  TypeSelector,
+  ZoomControl,
+  GeolocationControl,
+  RouteButton,
+  TrafficControl,
+  GeoObject,
+} from "react-yandex-maps";
+
 const { Option } = Select;
 export default class Cabinet extends Component {
   state = {
@@ -23,11 +36,15 @@ export default class Cabinet extends Component {
     logo: null,
     ourHistory: "",
     whyUs: "",
+params:null,
   };
   getKinderGarden = () => {
-    getKg()
-      .then((res) => {
-        this.setState({
+    getKg().then((res) => {
+// console.log([Number(res.data.params[0]),Number(res.data.params[1])])
+      this.setState({
+        
+        params:[Number(res.data.params[0]),Number(res.data.params[1])],
+
           KG: res.data,
           email: res.data.email,
           name: res.data.name,
@@ -126,10 +143,66 @@ export default class Cabinet extends Component {
   onDastur3 = (e) => {
     this.setState({ dastur3: e.target.value });
   };
+  onMapClick = (e) => {
+    var coords = e.get("coords");
+
+    this.setState({
+      params: coords,
+    });
+  };
   render() {
+    console.log(this.state.params)
     return (
       <div style={{ padding: "3%", width: "100%" }}>
+        <div className={styles.formAdmin}>
+     
+        <YMaps>
+                  <Map
+                    onClick={this.onMapClick}
+                    width="100%"
+                    height="65vh"
+                    defaultState={{
+                      center: this.state.params!=null?this.state.params:[41.79478951067519, 64.27236652149892],
+                       
+                      zoom: 6,
+                    }}
+                  >
+                   {
+                      
+                     <Clusterer
+                     options={{
+                       preset: "islands#invertedVioletClusterIcons",
+                       groupByCoordinates: false,
+                     }}
+                   >
+                 
+                     
+                         <Placemark
+                           key={0}
+                           geometry={
+                            this.state.params!=null?this.state.params:[41.79478951067519, 64.27236652149892]
+                           }
+                           properties={{
+                             balloonContent: "Bog'cha binosi",
+                           }}
+                         />
+                   
+                   </Clusterer>
+                   }
+                   
+
+                    <GeolocationControl options={{ float: "left" }} />
+                    <TypeSelector options={{ float: "right" }} />
+                    <TrafficControl options={{ float: "right" }} />
+                    <RouteButton options={{ float: "right" }} />
+                    <ZoomControl options={{ float: "left" }} />
+                  </Map>
+                </YMaps>
+ 
+        </div>
+
         <Container>
+
           <Form>
             <div className={styles.formAdmin}>
               <Row>
