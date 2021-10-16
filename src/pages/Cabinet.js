@@ -36,15 +36,21 @@ export default class Cabinet extends Component {
     logo: null,
     ourHistory: "",
     whyUs: "",
-params:null,
+    params: null,
+    posttext1: "",
+    postimage1: null,
+    posttext2: "",
+    postimage2: null,
+    posttext3: "",
+    postimage3: null,
+    posttext4: "",
+    postimage4: null,
   };
   getKinderGarden = () => {
-    getKg().then((res) => {
-// console.log([Number(res.data.params[0]),Number(res.data.params[1])])
-      this.setState({
-        
-        params:[Number(res.data.params[0]),Number(res.data.params[1])],
-
+    getKg()
+      .then((res) => {
+        this.setState({
+          params: [Number(res.data.params[0]), Number(res.data.params[1])],
           KG: res.data,
           email: res.data.email,
           name: res.data.name,
@@ -86,9 +92,16 @@ params:null,
       program3: this.state.dastur3,
       our_history: this.state.ourHistory,
       why_us: this.state.whyUs,
-    params:this.state.params
+      params: this.state.params,
+      posttext1: this.state.post_text1,
+      postimage1: this.state.post_image1,
+      posttext2: this.state.post_text2,
+      postimage2: this.state.post_image2,
+      posttext3: this.state.post_text3,
+      postimage3: this.state.post_image3,
+      posttext4: this.state.post_text4,
+      postimage4: this.state.post_image4,
     };
-    console.log(data);
     editKg(data)
       .then((res) => {
         console.log(res.data);
@@ -146,63 +159,83 @@ params:null,
   };
   onMapClick = (e) => {
     var coords = e.get("coords");
-
     this.setState({
       params: coords,
     });
+  };
+  onPosttext1 = (e) => {
+    this.setState({ posttext1: e.target.value });
+  };
+  onPostimage1 = (e) => {
+    this.setState({ postimage1: e.target.files[0] });
+  };
+  onPosttext2 = (e) => {
+    this.setState({ posttext2: e.target.value });
+  };
+  onPostimage2 = (e) => {
+    this.setState({ postimage2: e.target.files[0] });
+  };
+  onPosttext3 = (e) => {
+    this.setState({ posttext3: e.target.value });
+  };
+  onPostimage3 = (e) => {
+    this.setState({ postimage3: e.target.files[0] });
+  };
+  onPosttext4 = (e) => {
+    this.setState({ posttext4: e.target.value });
+  };
+  onPostimage4 = (e) => {
+    this.setState({ postimage4: e.target.files[0] });
   };
   render() {
     return (
       <div style={{ padding: "3%", width: "100%" }}>
         <div className={styles.formAdmin}>
-     
-        <YMaps>
-                  <Map
-                    onClick={this.onMapClick}
-                    width="100%"
-                    height="65vh"
-                    defaultState={{
-                      center: this.state.params!=null?this.state.params:[41.79478951067519, 64.27236652149892],
-                       
-                      zoom: 6,
-                    }}
-                  >
-                   {
-                      
-                     <Clusterer
-                     options={{
-                       preset: "islands#invertedVioletClusterIcons",
-                       groupByCoordinates: false,
-                     }}
-                   >
-                 
-                     
-                         <Placemark
-                           key={0}
-                           geometry={
-                            this.state.params!=null?this.state.params:[41.79478951067519, 64.27236652149892]
-                           }
-                           properties={{
-                             balloonContent: "Bog'cha binosi",
-                           }}
-                         />
-                   
-                   </Clusterer>
-                   }
-                   
+          <YMaps>
+            <Map
+              onClick={this.onMapClick}
+              width="100%"
+              height="65vh"
+              defaultState={{
+                center:
+                  this.state.params != null
+                    ? this.state.params
+                    : [41.79478951067519, 64.27236652149892],
 
-                    <GeolocationControl options={{ float: "left" }} />
-                    <TypeSelector options={{ float: "right" }} />
-                    <TrafficControl options={{ float: "right" }} />
-                    <RouteButton options={{ float: "right" }} />
-                    <ZoomControl options={{ float: "left" }} />
-                  </Map>
-                </YMaps>
- 
+                zoom: 6,
+              }}
+            >
+              {
+                <Clusterer
+                  options={{
+                    preset: "islands#invertedVioletClusterIcons",
+                    groupByCoordinates: false,
+                  }}
+                >
+                  <Placemark
+                    key={0}
+                    geometry={
+                      this.state.params != null
+                        ? this.state.params
+                        : [41.79478951067519, 64.27236652149892]
+                    }
+                    properties={{
+                      balloonContent: "Bog'cha binosi",
+                    }}
+                  />
+                </Clusterer>
+              }
+
+              <GeolocationControl options={{ float: "left" }} />
+              <TypeSelector options={{ float: "right" }} />
+              <TrafficControl options={{ float: "right" }} />
+              <RouteButton options={{ float: "right" }} />
+              <ZoomControl options={{ float: "left" }} />
+            </Map>
+          </YMaps>
         </div>
 
         <Container>
-
           <Form>
             <div className={styles.formAdmin}>
               <Row>
@@ -345,7 +378,7 @@ params:null,
                 <Form.Control
                   value={this.state.whyUs}
                   onChange={this.onWhyus}
-                  rows={3}
+                  rows={5}
                   as="textarea"
                   placeholder="Nima uchun biz..."
                 />
@@ -359,11 +392,139 @@ params:null,
                 <Form.Control
                   value={this.state.ourHistory}
                   onChange={this.onOurhistory}
-                  rows={3}
+                  rows={5}
                   as="textarea"
                   placeholder="Bizning tarix..."
                 />
               </Form.Group>
+            </div>
+            <div className={styles.formAdmin}>
+              <Row>
+                <Col>
+                  <Form.Group className="mb-3" style={{ marginBottom: "20px" }}>
+                    <Form.Label>
+                      Bog'cha sahifasi "Mehribon va tarbiyalovchi muhit" uchun
+                      matn
+                    </Form.Label>
+                    <Form.Control
+                      value={this.state.posttext1}
+                      onChange={this.onPosttext1}
+                      rows={8}
+                      as="textarea"
+                      placeholder="Mehribon va tarbiyalovchi muhit"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col>
+                  <Form.Group controlId="formFile" className="mb-3">
+                    <Form.Label>
+                      Bog'cha sahifasi "Mehribon va tarbiyalovchi muhit" uchun
+                      matn
+                    </Form.Label>
+                    <br />
+                    <Form.Control
+                      type="file"
+                      accept="image/*"
+                      onChange={this.onPostimage1}
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+            </div>
+            <div className={styles.formAdmin}>
+              <Row>
+                <Col>
+                  <Form.Group className="mb-3" style={{ marginBottom: "20px" }}>
+                    <Form.Label>
+                      Bog'cha sahifasi "Ajoyib/qiziquvchanlik" uchun matn
+                    </Form.Label>
+                    <Form.Control
+                      value={this.state.posttext2}
+                      onChange={this.onPosttext2}
+                      rows={8}
+                      as="textarea"
+                      placeholder="Ajoyib/qiziquvchanlik"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col>
+                  <Form.Group controlId="formFile" className="mb-3">
+                    <Form.Label>
+                      Bog'cha sahifasi "Ajoyib/qiziquvchanlik" uchun matn
+                    </Form.Label>
+                    <br />
+                    <Form.Control
+                      type="file"
+                      accept="image/*"
+                      onChange={this.onPostimage2}
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+            </div>
+            <div className={styles.formAdmin}>
+              <Row>
+                <Col>
+                  <Form.Group className="mb-3" style={{ marginBottom: "20px" }}>
+                    <Form.Label>
+                      Bog'cha sahifasi "G'ayrat. Nishon. Yetakchilik" uchun matn
+                    </Form.Label>
+                    <Form.Control
+                      value={this.state.posttext3}
+                      onChange={this.onPosttext3}
+                      rows={8}
+                      as="textarea"
+                      placeholder="G'ayrat. Nishon. Yetakchilik"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col>
+                  <Form.Group controlId="formFile" className="mb-3">
+                    <Form.Label>
+                      Bog'cha sahifasi "G'ayrat. Nishon. Yetakchilik" uchun matn
+                    </Form.Label>
+                    <br />
+                    <Form.Control
+                      type="file"
+                      accept="image/*"
+                      onChange={this.onPostimage3}
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
+            </div>
+            <div className={styles.formAdmin}>
+              <Row>
+                <Col>
+                  <Form.Group className="mb-3" style={{ marginBottom: "20px" }}>
+                    <Form.Label>
+                      Bog'cha sahifasi "Bizning dunyomizni bir vaqtning o'zida
+                      bitta bolani o'zgartirish" uchun matn
+                    </Form.Label>
+                    <Form.Control
+                      value={this.state.posttext4}
+                      onChange={this.onPosttext4}
+                      rows={8}
+                      as="textarea"
+                      placeholder="Bizning dunyomizni bir vaqtning o'zida bitta bolani o'zgartirish"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col>
+                  <Form.Group controlId="formFile" className="mb-3">
+                    <Form.Label>
+                      Bog'cha sahifasi "Bizning dunyomizni bir vaqtning o'zida
+                      bitta bolani o'zgartirish" uchun matn
+                    </Form.Label>
+                    <br />
+                    <Form.Control
+                      type="file"
+                      accept="image/*"
+                      onChange={this.onPostimage4}
+                    />
+                  </Form.Group>
+                </Col>
+              </Row>
             </div>
             <div className={styles.formAdmin}>
               <Form.Group className="mb-3" style={{ marginBottom: "20px" }}>
@@ -373,7 +534,7 @@ params:null,
                 <Form.Control
                   value={this.state.dastur1}
                   onChange={this.onDastur1}
-                  rows={3}
+                  rows={5}
                   as="textarea"
                   placeholder="Dastur 1-bosqich..."
                 />
@@ -387,7 +548,7 @@ params:null,
                 <Form.Control
                   value={this.state.dastur2}
                   onChange={this.onDastur2}
-                  rows={3}
+                  rows={5}
                   as="textarea"
                   placeholder="Dastur 2-bosqich..."
                 />
@@ -401,7 +562,7 @@ params:null,
                 <Form.Control
                   value={this.state.dastur3}
                   onChange={this.onDastur3}
-                  rows={3}
+                  rows={5}
                   as="textarea"
                   placeholder="Dastur 3-bosqich..."
                 />
@@ -409,7 +570,13 @@ params:null,
             </div>
           </Form>
           <Button
-            style={{ position: "fixed", right: "0", bottom: "0px" }}
+            style={{
+              position: "fixed",
+              right: "0",
+              bottom: "50px",
+              paddingLeft: "30px",
+              paddingRight: "30px",
+            }}
             onClick={this.editKinderGarden}
           >
             Saqlash
