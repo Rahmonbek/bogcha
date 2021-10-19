@@ -20,6 +20,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Menu } from "antd";
 import "antd/dist/antd.css";
 import { Link } from "react-router-dom";
+import Global from "../host/Global";
+import { getKg } from "../host/Config";
 
 export default class Dasturlar extends Component {
   state = {
@@ -49,7 +51,17 @@ export default class Dasturlar extends Component {
     });
   };
   componentDidMount() {
+    if (Global.kg === null) {
+      getKg()
+        .then((res) => {
+          Global.kg = res.data;
+        })
+        .catch((err) => console.log(err));
+    }
     window.addEventListener("scroll", this.change);
+
+    // console.log("Global.kg.program1");
+    // console.log(Global.kg.program1);
   }
   handleClick = (e) => {
     console.log("click ", e);
@@ -93,12 +105,12 @@ export default class Dasturlar extends Component {
                     <p>
                       <Link to="/oshxona/uz">Oshxona</Link>
                     </p>
-                    <p>
+                    {/* <p>
                       <Link to="/galereya/uz">Galereya</Link>
                     </p>
                     <p>
                       <Link to="/manzil/uz">Manzil</Link>
-                    </p>
+                    </p> */}
                   </div>
                   <span style={{ fontSize: "25px" }}>|</span>
                   <span className={style.sub2}>
@@ -226,12 +238,12 @@ export default class Dasturlar extends Component {
                           <Menu.Item key="4">
                             <Link to="/tarbiyachilar/uz">Tarbiyachilar</Link>
                           </Menu.Item>
-                          <Menu.Item key="5">
+                          {/* <Menu.Item key="5">
                             <Link to="/galereya/uz">Galereya</Link>
                           </Menu.Item>
                           <Menu.Item key="6">
                             <Link to="/manzil/uz">Manzil</Link>
-                          </Menu.Item>
+                          </Menu.Item> */}
                         </Menu.ItemGroup>
                       </SubMenu>
                       <SubMenu
@@ -281,7 +293,7 @@ export default class Dasturlar extends Component {
                         key="12"
                         style={{ color: "white", backgroundColor: "#F76B6A" }}
                       >
-                        <button
+                        {/* <button
                           style={{
                             border: "none",
                             backgroundColor: "white",
@@ -296,7 +308,7 @@ export default class Dasturlar extends Component {
                           >
                             Kirish
                           </Link>
-                        </button>
+                        </button> */}
                       </Menu.Item>
                       <Menu.Item>
                         <span>
@@ -341,7 +353,12 @@ export default class Dasturlar extends Component {
           ></div>
           <div className={style.oyna}>
             <div className={style.rasm}>
-              <img src={img1} />
+              {/* {  (Global.kg.program_img==null)? {return()}:{return(Global.kg.program1_img)}} */}
+              <img
+                src={
+                  Global.kg.program1_img == null ? img1 : Global.kg.program1_img
+                }
+              />
             </div>
             <div className={style.border}>
               <img src={img} />
@@ -356,19 +373,14 @@ export default class Dasturlar extends Component {
                   margin: "16px 0px 12px",
                 }}
               ></div>
-              <p>
-                The sweetest and youngest of all at Flamingo are approximately
-                12 months- 24 months. At this stage in our learning journey,
-                everything is an amazing discovery. From Old MacDonald songs to
-                our puppets during circle time, learning is truly a joy!
-              </p>
+              <p>{Global.kg.program1}</p>
               <span>
                 <Link to="/dastur_1/uz">Batafsil</Link>
               </span>
             </div>
           </div>
-          <div className={(style.oyna, style.oyna1)}>
-            <div className={style.content1}>
+          <div className={style.oyna}>
+            <div className={style.content}>
               <h4>2-bosqich</h4>
               <div
                 style={{
@@ -378,13 +390,7 @@ export default class Dasturlar extends Component {
                   margin: "16px 0px 12px",
                 }}
               ></div>
-              <p>
-                Oﬀ like a rocket at 2-years old, our toddler classroom is all
-                about exploration. Sensory activities are a huge part of our
-                everyday learning. This classroom is created to promote
-                independence and encourages discovery as a child realizes
-                there's a huge world out there!
-              </p>
+              <p>{Global.kg.program2}</p>
               <span>
                 <Link to="/dastur_2/uz">Batafsil</Link>
               </span>
@@ -393,12 +399,20 @@ export default class Dasturlar extends Component {
               <img src={img} />
             </div>
             <div className={style.rasm}>
-              <img src={img2} />
+              <img
+                src={
+                  Global.kg.program1_img == null ? img2 : Global.kg.program2_img
+                }
+              />
             </div>
           </div>
           <div className={style.oyna}>
             <div className={style.rasm}>
-              <img src={img3} />
+              <img
+                src={
+                  Global.kg.program1_img == null ? img3 : Global.kg.program3_img
+                }
+              />
             </div>
             <div className={style.border}>
               <img src={img} />
@@ -413,13 +427,7 @@ export default class Dasturlar extends Component {
                   margin: "16px 0px 12px",
                 }}
               ></div>
-              <p>
-                A world of monsters and fairies await when we enter our 3’s
-                class. Pretend play rules this age group from the fearless
-                Batman to a newfound fear of the dark. At Flamingo, we are all
-                now fully potty-trained and focused on higher level academics
-                such as geography, writing, and gardening!
-              </p>
+              <p>{Global.kg.program3}</p>
               <span>
                 <Link to="/dastur_3/uz">Batafsil</Link>
               </span>
