@@ -6,7 +6,7 @@ import styles from "../css/mini.module.css";
 import kinder1 from "../img/meal1.jpg";
 import kinder2 from "../img/meal2.jpg";
 import kinder3 from "../img/meal3.jpg";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Table } from "react-bootstrap";
 import Footer from "./Footer";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { getKg } from "../host/Config";
@@ -15,6 +15,8 @@ import Global from "../host/Global";
 export default class Oshxona extends Component {
   state = {
     loader: true,
+    oshxona: [],
+    menu: [],
   };
 
   componentDidMount() {
@@ -22,8 +24,17 @@ export default class Oshxona extends Component {
       getKg()
         .then((res) => {
           Global.kg = res.data;
+          this.setState({
+            oshxona: res.data.oshxona,
+            menu: res.data.menu,
+          });
         })
         .catch((err) => console.log(err));
+    } else {
+      this.setState({
+        oshxona: Global.kg.oshxona,
+        menu: Global.kg.menu,
+      });
     }
     setInterval(() => {
       this.setState({
@@ -118,13 +129,104 @@ export default class Oshxona extends Component {
                     Maktabgacha yoshdagi bolalar uchun namunaviy ovqatlanish: 3
                     yoshdan 5 yoshgacha
                   </h2>
-                  {Global.kg.oshxona.map((food) => {
-                    if (food.id === 3) {
-                      return <h2 className={styles.heading}>{food.name}</h2>;
-                    }
-                  })}
 
-                  <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
+                  {/* {this.state.oshxona !== []
+                    ? this.state.oshxona.map((food) => {
+                        return this.state.menu !== [] ? (
+                          <>
+                            <h2 className={styles.heading}>{food.name}</h2>
+                            <hr
+                              style={{
+                                backgroundColor: "#F76B6A",
+                                height: "2px",
+                              }}
+                            />
+                            <div className={styles.cardchalar}>
+                              <div>Menu nomi</div>
+                              <div style={{ marginLeft: "50%" }}>
+                                Menu tarkibi
+                              </div>
+                            </div>
+                            {this.state.menu.map((menu) => {
+                              if (food.id === menu.oshxona) {
+                                return (
+                                  <>
+                                    <hr
+                                      style={{
+                                        backgroundColor: "#F76B6A",
+                                        height: "2px",
+                                      }}
+                                    />
+                                    <div className={styles.cardchalar}>
+                                      <div>{menu.name}</div>
+                                      <div style={{ marginLeft: "50%" }}>
+                                        {menu.tarkib}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })}
+                          </>
+                        ) : (
+                          ""
+                        );
+                      })
+                    : ""} */}
+                  {this.state.oshxona !== null
+                    ? this.state.oshxona.map((item) => {
+                        return (
+                          <div className={styles.MenuGroup}>
+                            <Table bordered hover>
+                              <thead>
+                                <tr
+                                  variant="dark"
+                                  style={{
+                                    backgroundColor: "black",
+                                    color: "white",
+                                  }}
+                                >
+                                  <th
+                                    colSpan="2"
+                                    style={{
+                                      textAlign: "center",
+                                      backgroundColor: "#F76B6A",
+                                      color: "white",
+                                    }}
+                                  >
+                                    {item.name}
+                                  </th>
+                                </tr>
+                                <tr>
+                                  <th style={{ textAlign: "center" }}>
+                                    Menu nomi
+                                  </th>
+                                  <th style={{ textAlign: "center" }}>
+                                    Menu tarkibi
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {this.state.menu !== null
+                                  ? this.state.menu.map((item1) => {
+                                      return item.id === item1.oshxona ? (
+                                        <tr>
+                                          <td>{item1.name}</td>
+                                          <td>{item1.tarkib}</td>
+                                        </tr>
+                                      ) : (
+                                        ""
+                                      );
+                                    })
+                                  : ""}
+                              </tbody>
+                            </Table>
+                          </div>
+                        );
+                      })
+                    : ""}
+
+                  {/* <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
                   <div className={styles.cardchalar}>
                     <div>Nonushta</div>
 
@@ -164,7 +266,8 @@ export default class Oshxona extends Component {
                       }
                     })}
                   </div>
-                  <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
+                  <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} /> */}
+
                   {/* <div className={styles.cardchalar}>
                     <div>Peshindan keyin tamaddi</div>
                     <div style={{ marginLeft: "100px" }}>
@@ -173,7 +276,7 @@ export default class Oshxona extends Component {
                   </div>
                   <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} /> */}
 
-                  {Global.kg.oshxona.map((food) => {
+                  {/* {Global.kg.oshxona.map((food) => {
                     if (food.id === 4) {
                       return <h2 className={styles.heading}>{food.name}</h2>;
                     }
@@ -204,7 +307,8 @@ export default class Oshxona extends Component {
                       }
                     })}
                   </div>
-                  <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} />
+                  <hr style={{ backgroundColor: "#F76B6A", height: "2px" }} /> */}
+
                   {/* <div className={styles.cardchalar}>
                     <div>Tushlik</div>
                     <div style={{ marginLeft: "210px" }}>
